@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="zh-CN"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d3b">
+  <title>斐济出发前总检查｜2026.08.25</title>
+  <style>
+    :root {
+      --ink: #153b3e;
+      --muted: #617777;
+      --paper: #f4ecdc;
+      --card: rgba(255,255,255,.84);
+      --sea: #006f73;
+      --lagoon: #35a7a0;
+      --sun: #efad45;
+      --coral: #dc684f;
+      --navy: #092f38;
+      --cream: #fffaf0;
+      --line: rgba(23,52,51,.14);
+      --shadow: 0 18px 46px rgba(18,61,59,.12);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 85% 0%, rgba(55,166,160,.24), transparent 32rem),
+        radial-gradient(circle at 0% 26%, rgba(243,166,59,.18), transparent 27rem),
+        linear-gradient(180deg, #edf7f3 0, var(--paper) 25rem, #f8f3e9 100%);
+      font-family: "Aptos", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      line-height: 1.72;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .17;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cpath d='M0 42c14-11 28-11 42 0s28 11 42 0' fill='none' stroke='%230e6762' stroke-opacity='.22'/%3E%3Cpath d='M0 58c14-11 28-11 42 0s28 11 42 0' fill='none' stroke='%23df6d55' stroke-opacity='.12'/%3E%3C/svg%3E");
+    }
+    a { color: var(--sea); text-underline-offset: 3px; }
+    .wrap { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
+    .hero { padding: 36px 0 34px; position: relative; overflow: hidden; }
+    .hero::after { content:""; position:absolute; width:420px; height:420px; right:-120px; top:-180px; border:1px solid rgba(0,111,115,.18); border-radius:50%; box-shadow:0 0 0 48px rgba(0,111,115,.04),0 0 0 96px rgba(220,104,79,.035); pointer-events:none; }
+    .hero-shell { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr); gap:26px; align-items:stretch; }
+    .hero-copy { padding:22px 0 6px; }
+    .passport-stamp { position:relative; display:flex; flex-direction:column; justify-content:space-between; min-height:330px; padding:26px; color:#f8f3e8; background:linear-gradient(145deg,var(--navy),#075862 62%,#0a7776); border-radius:34px 34px 34px 8px; box-shadow:0 26px 64px rgba(9,47,56,.24); overflow:hidden; }
+    .passport-stamp::before { content:"FIJI\A SOUTH PACIFIC"; white-space:pre; position:absolute; right:-24px; top:24px; width:168px; height:168px; display:grid; place-items:center; text-align:center; border:2px dashed rgba(255,255,255,.27); border-radius:50%; transform:rotate(13deg); font:800 13px/1.35 Georgia,serif; letter-spacing:.16em; }
+    .passport-stamp .stamp-label { letter-spacing:.2em; text-transform:uppercase; font-size:11px; color:rgba(255,255,255,.62); }
+    .passport-stamp .stamp-date { font:700 48px/1 Georgia,serif; margin:10px 0; }
+    .passport-stamp .stamp-route { font-weight:800; font-size:15px; max-width:210px; }
+    .passport-stamp .stamp-bottom { display:flex; justify-content:space-between; gap:12px; padding-top:18px; border-top:1px solid rgba(255,255,255,.2); font-size:12px; color:rgba(255,255,255,.76); }
+    .eyebrow { letter-spacing: .18em; text-transform: uppercase; font-size: 12px; font-weight: 800; color: var(--sea); }
+    h1, h2, h3 { font-family: Georgia, "Noto Serif SC", "Songti SC", serif; line-height: 1.18; }
+    h1 { font-size: clamp(44px, 7vw, 82px); max-width: 880px; margin: 14px 0 18px; letter-spacing: -.045em; }
+    .hero p { max-width: 820px; font-size: 18px; color: var(--muted); }
+    .route { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0; }
+    .route span { padding: 8px 13px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.58); font-weight: 700; }
+    .route i { align-self: center; color: var(--coral); font-style: normal; }
+    .status-board { display: grid; grid-template-columns: 1.2fr .8fr; gap: 18px; margin-top: 22px; }
+    .countdown, .progress-card { border-radius: 28px; padding: 24px; box-shadow: var(--shadow); }
+    .countdown { color: #fff; background: linear-gradient(135deg, #092f38, #006f73); }
+    .countdown strong { display: block; font: 700 clamp(32px,6vw,58px)/1 Georgia, serif; margin: 8px 0; }
+    .countdown small { color: rgba(255,255,255,.72); }
+    .progress-card { background: rgba(255,255,255,.76); border: 1px solid rgba(255,255,255,.8); }
+    .progress-track { height: 12px; background: #d8e1dc; border-radius: 999px; overflow: hidden; margin: 14px 0 8px; }
+    .progress-fill { height: 100%; width: 0; background: linear-gradient(90deg, var(--sun), var(--coral)); transition: width .3s ease; }
+    .tools { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 14px; }
+    button, .pill { border: 0; border-radius: 999px; padding: 10px 14px; font: inherit; font-weight: 800; cursor: pointer; }
+    button { background: var(--ink); color: white; }
+    button.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+    .sticky-nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(16px); background: rgba(245,239,226,.86); border-block: 1px solid var(--line); }
+    .sticky-nav .wrap { display: flex; gap: 8px; overflow-x: auto; padding-block: 10px; scrollbar-width: none; }
+    .sticky-nav a { white-space: nowrap; text-decoration: none; border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 800; color: var(--ink); }
+    .sticky-nav a:hover { background: white; }
+    main { padding: 28px 0 80px; }
+    section { scroll-margin-top: 72px; margin: 56px 0; }
+    .section-head { display: grid; grid-template-columns: 90px 1fr; gap: 18px; align-items: start; margin-bottom: 18px; }
+    .section-no { font: 700 46px/1 Georgia, serif; color: var(--coral); opacity: .8; }
+    h2 { font-size: clamp(28px, 4vw, 44px); margin: 0 0 6px; }
+    .section-head p { margin: 0; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 16px; }
+    .card { grid-column: span 4; padding: 22px; background: var(--card); border: 1px solid rgba(255,255,255,.92); border-radius: 24px; box-shadow: 0 10px 30px rgba(18,61,59,.07); transition:transform .18s ease,box-shadow .18s ease; }
+    .card:hover { transform:translateY(-2px); box-shadow:0 16px 34px rgba(18,61,59,.1); }
+    .card.wide { grid-column: span 6; }
+    .card.full { grid-column: 1/-1; }
+    .card h3 { font-size: 22px; margin: 0 0 10px; }
+    .tag { display: inline-flex; margin-bottom: 10px; padding: 5px 9px; border-radius: 8px; color: #fff; background: var(--sea); font-size: 12px; font-weight: 900; letter-spacing: .08em; }
+    .tag.orange { background: var(--coral); }
+    .tag.gold { background: #b77419; }
+    .verdict { border-left: 5px solid var(--sun); background: #fff8e8; padding: 16px 18px; border-radius: 0 16px 16px 0; margin: 14px 0; }
+    .note { color: var(--muted); font-size: 14px; }
+    .warning { color: #802d23; background: #fff0ec; border: 1px solid rgba(223,109,85,.25); padding: 16px; border-radius: 16px; }
+    .good { color: #174c45; background: #e8f6f2; border: 1px solid rgba(55,166,160,.26); padding: 16px; border-radius: 16px; }
+    .price { font: 700 30px/1 Georgia, serif; color: var(--coral); }
+    .table-scroll { overflow-x: auto; border-radius: 18px; }
+    table { width: 100%; border-collapse: collapse; background: rgba(255,255,255,.58); border-radius: 18px; overflow: hidden; }
+    th, td { padding: 13px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+    th { background: rgba(14,103,98,.09); font-size: 13px; }
+    tr:last-child td { border-bottom: 0; }
+    ul, ol { padding-left: 1.25em; }
+    li + li { margin-top: 7px; }
+    .check-group { background: rgba(255,255,255,.78); border-radius: 24px; padding: 18px; border: 1px solid rgba(255,255,255,.9); }
+    .check-group h3 { margin: 0 0 12px; }
+    .group-kicker { margin:0 0 6px; color:var(--coral); font-size:11px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; }
+    .check-note { margin:-4px 0 10px; color:var(--muted); font-size:13px; }
+    .packing-index { position:sticky; top:56px; z-index:8; display:flex; gap:8px; overflow-x:auto; margin:0 0 18px; padding:10px; background:rgba(255,250,240,.9); border:1px solid rgba(255,255,255,.9); border-radius:18px; box-shadow:0 8px 24px rgba(18,61,59,.08); backdrop-filter:blur(14px); scrollbar-width:none; }
+    .packing-index a { flex:0 0 auto; padding:7px 11px; border-radius:999px; color:var(--ink); background:white; border:1px solid var(--line); text-decoration:none; font-size:12px; font-weight:800; }
+    .packing-index a:hover { color:white; background:var(--sea); }
+    .packing-anchor { scroll-margin-top:118px; }
+    .platform { display:grid; grid-template-columns:42px 1fr; gap:12px; align-items:start; padding:14px 0; border-top:1px dashed var(--line); }
+    .platform:first-of-type { border-top:0; }
+    .platform b { width:42px; height:42px; display:grid; place-items:center; border-radius:13px; color:white; background:var(--sea); font:800 13px/1 Georgia,serif; }
+    .platform p { margin:2px 0 0; color:var(--muted); font-size:14px; }
+    .decision-row { display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center; padding:14px 0; border-top:1px dashed var(--line); }
+    .decision-row:first-of-type { border-top:0; }
+    .decision-row .answer { font-weight:900; color:var(--sea); white-space:nowrap; }
+    .source-strip { display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .source-strip a { padding:6px 10px; border:1px solid var(--line); border-radius:999px; background:white; font-size:12px; font-weight:800; text-decoration:none; }
+    .check-item { display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; align-items: start; padding: 10px 8px; border-top: 1px dashed var(--line); }
+    .check-item:first-of-type { border-top: 0; }
+    .check-item input { width: 19px; height: 19px; accent-color: var(--sea); margin-top: 3px; }
+    .check-item label { cursor: pointer; }
+    .check-item input:checked + label { text-decoration: line-through; opacity: .58; }
+    .level { font-size: 11px; font-weight: 900; border-radius: 999px; padding: 3px 7px; white-space: nowrap; }
+    .must { background: #ffe6db; color: #8b2e20; }
+    .opt { background: #e6f4f1; color: #18564f; }
+    .skip { background: #e9e9e5; color: #575d5c; }
+    .timeline { border-left: 2px solid var(--lagoon); margin-left: 9px; }
+    .day { position: relative; padding: 0 0 24px 28px; }
+    .day::before { content: ""; position: absolute; left: -8px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background: var(--sun); border: 3px solid var(--paper); }
+    .day h3 { margin: 0 0 7px; }
+    .contacts { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+    .contact { padding: 14px; border-radius: 16px; background: #123d3b; color: white; }
+    .contact strong { display: block; font-size: 18px; }
+    .sources li { margin-bottom: 8px; word-break: break-word; }
+    .research-list { display: grid; gap: 12px; }
+    .research-item { padding: 15px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.58); }
+    .research-item h3 { margin: 0 0 4px; font-size: 17px; }
+    .research-meta { color: var(--muted); font-size: 12px; margin-bottom: 8px; }
+    .research-item p { margin: 0; }
+    .evidence-badge { display: inline-flex; align-items: center; margin-top: 10px; padding: 4px 8px; border-radius: 999px; font-size: 11px; font-weight: 900; }
+    .evidence-badge.verified { color: #174c45; background: #dcefe9; }
+    .evidence-badge.experience { color: #725113; background: #f9e9bc; }
+    .evidence-badge.rejected { color: #802d23; background: #ffe0d8; }
+    .payment-flow { counter-reset: paystep; display: grid; gap: 10px; }
+    .payment-step { position: relative; padding: 14px 16px 14px 54px; border-radius: 16px; background: rgba(255,255,255,.62); border: 1px solid var(--line); }
+    .payment-step::before { counter-increment: paystep; content: counter(paystep); position: absolute; left: 14px; top: 14px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--sea); font-weight: 900; }
+    .footer { padding: 32px 0 60px; color: var(--muted); border-top: 1px solid var(--line); }
+    .tiny { font-size: 12px; }
+    @media (max-width: 820px) {
+      .hero-shell, .status-board, .section-head { grid-template-columns: 1fr; }
+      .passport-stamp { min-height:250px; }
+      .section-no { font-size: 28px; }
+      .card, .card.wide { grid-column: 1/-1; }
+      .contacts { grid-template-columns: 1fr; }
+      .card .grid > div { grid-column: 1/-1 !important; }
+      table { display: block; overflow-x: auto; }
+      th, td { min-width: 120px; padding: 10px; }
+      .research-item { padding: 13px; }
+      .packing-index { top:54px; margin-inline:-4px; }
+      .check-item { grid-template-columns:22px 1fr; }
+      .check-item .level { grid-column:2; justify-self:start; }
+    }
+    @media print {
+      body { background: white; font-size: 11px; }
+      body::before, .sticky-nav, .tools { display: none; }
+      .wrap { width: 100%; }
+      .hero { padding-top: 0; }
+      .card, .check-group { box-shadow: none; break-inside: avoid; }
+      section { margin: 22px 0; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-shell">
+        <div class="hero-copy">
+          <div class="eyebrow">Fiji · Before You Go</div>
+          <h1>斐济出发前<br>总检查</h1>
+          <p>给 11 人团队的出发手册。证件、实体电话卡、保险、酒店垫付、生活用品和拍摄设备都放在这一页，照着勾就行。</p>
+          <div class="route"><span>上海</span><i>→</i><span>楠迪</span><i>→</i><span>苏瓦</span><i>→</i><span>Korolevu</span><i>→</i><span>楠迪</span><i>→</i><span>上海</span></div>
+        </div>
+        <aside class="passport-stamp" aria-label="行程摘要">
+          <div><div class="stamp-label">Departure card</div><div class="stamp-date">25 AUG</div><div class="stamp-route">PVG → NAN<br>五晚住宿 · 11 人</div></div>
+          <div class="stamp-bottom"><span>最多参加休闲浮潜</span><span>实体 SIM</span></div>
+        </aside>
+      </div>
+      <div class="status-board">
+        <div class="countdown">
+          <small>距离出发</small>
+          <strong id="countdown">8 天</strong>
+          <div>8 月 25 日 04:00 浦东机场集合 · 07:20 起飞</div>
+        </div>
+        <div class="progress-card">
+          <strong>行前完成度</strong>
+          <div class="progress-track"><div class="progress-fill" id="progressFill" style="width: 0%;"></div></div>
+          <span id="progressText">0 / 147 · 0%</span>
+          <div class="tools"><button type="button" onclick="checkMust()">查看未完成必做项</button><button type="button" class="secondary" onclick="resetChecks()">重置全部</button></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sticky-nav" aria-label="页面目录"><div class="wrap">
+    <a href="#first">先做四件事</a><a href="#xhs">旅行者经验</a><a href="#sim">实体卡</a><a href="#insurance">保险怎么买</a><a href="#payment">酒店垫付</a><a href="#entry">入境</a><a href="#packing">详细物资</a><a href="#schedule">倒计时</a><a href="#safety">注意事项</a><a href="#master">总清单</a><a href="#sources">来源</a>
+  </div></nav>
+
+  <main class="wrap">
+    <section id="first">
+      <div class="section-head"><div class="section-no">01</div><div><h2>今天先完成四件事</h2><p>这四项比买泳衣、换现金更急。</p></div></div>
+      <div class="grid">
+        <article class="card"><span class="tag orange">今天</span><h3>核对护照</h3><p>回程为 2026-09-01，护照有效期建议至少到 <strong>2027-03-02</strong> 以后。姓名拼音必须与机票完全一致。</p></article>
+        <article class="card"><span class="tag orange">今天</span><h3>保险下单</h3><p>保障期完整覆盖 8/25 离家至 9/1 回家。参加正规休闲浮潜者优先买潜游保；不浮潜者再选普通境外险。</p></article>
+        <article class="card"><span class="tag orange">今天</span><h3>实体卡分工</h3><p>通信负责人买 Vodafone 实体卡，副负责人买 Digicel 实体卡；其余人默认 Digicel Traveler 25，全部按实体 SIM 执行。</p></article>
+        <article class="card"><span class="tag orange">今天</span><h3>酒店垫付确认</h3><p>按 11 人、5 晚、5 间双人房 + 1 间单人房复核约 ¥10,000 是否含税、早餐和单房差；先收款再由持卡人垫付。</p></article>
+        <article class="card full"><span class="tag gold">怎么用这份手册</span><h3>旅行者经验负责补细节，官方规则负责定边界</h3><p>电话卡信号、酒店用品和飞行舒适度看亲历反馈；入境、保险、锂电池和行李限制听官方。单篇笔记里出现的价格和“人人必带”不会直接照搬，页面已经把内容分成必带、看个人和可以不带。</p></article>
+      </div>
+    </section>
+
+    <section id="xhs">
+      <div class="section-head"><div class="section-no">02</div><div><h2>旅行者经验：哪些值得听</h2><p>共整理 27 篇有正文的笔记，并把评论中的反例一起算进去。它们适合补充真实使用感；套餐、入境、航空和保险仍以官方页面为准。</p></div></div>
+      <div class="grid">
+        <article class="card wide"><span class="tag">实体电话卡 · 5 篇</span><div class="research-list">
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/69858a52000000000a02f324">斐济🇫🇯落地续命❗️❗️机场电话卡攻略📞</a></h3><div class="research-meta">赛卡 · 2026-02-06 · 18 条评论</div><p>确认过海关取行李后可在相邻柜台办 Digicel/Vodafone、需护照、店员可装卡激活；评论出现 Kuata 岛 Digicel 无信号而 Vodafone 可用的反例。</p><span class="evidence-badge verified">官方支持 + 评论反例</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/6a42560f000000001503d01b">斐济 机场手机买sim卡选择</a></h3><div class="research-meta">旅游小助手 Travel maps &amp; tips · 2026-06-29 · 18 条评论</div><p>实拍机场 Digicel FJ$25/75GB、Vodafone FJ$35/50GB；评论与作者均反馈 Digicel 在部分外岛慢，且机场办理排队可能较久。</p><span class="evidence-badge verified">Digicel 价格获官网支持</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/67ac5ab90000000018018e67">斐济电话卡有哪些，如何购买？</a></h3><div class="research-meta">梨落落 · 2025-02-12 · 3 条评论</div><p>建议在离柜前让店员完成激活并现场测试；“免费 2GB 卡”未在当前运营商游客套餐页找到，不能当成到场必有福利。</p><span class="evidence-badge experience">操作经验可采，赠卡说法待核</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/6a60fbe9000000000903554b">斐济🇫🇯第1️⃣课：流量落地再买便宜30倍！</a></h3><div class="research-meta">jjjayond上山下海 · 2026-07-23 · 11 条评论</div><p>机场 Wi‑Fi 可作落地过渡，本地实体卡显著便宜；评论提示市区可能更便宜，但团队落地即需导航，机场买更稳妥。</p><span class="evidence-badge experience">个人价格比较</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/68331886000000002300e19b">斐济换汇+电话卡教程，不用出机场！</a></h3><div class="research-meta">一个记账的大号 · 2025-05-25 · 20 条评论</div><p>去 Savusavu 时因覆盖选择 Vodafone；评论集中指出机场价格并非最低，说明“全员买同一网”并不合理，双网分工更稳。</p><span class="evidence-badge experience">地点型信号经验</span></div>
+        </div></article>
+
+        <article class="card wide"><span class="tag gold">物资与申报 · 5 篇</span><div class="research-list">
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/6a7b7d67000000002500da32">2026斐济入境全攻略免签丝滑通关｜避坑避雷</a></h3><div class="research-meta">楠笙风尚馆 · 2026-08-12 · 无有效评论</div><p>证件、返程票、住宿单与食品申报方向正确；“开箱率 30%”“人均必须 2000 FJD”“无人机固定 FJ$200”未获官方支持。</p><span class="evidence-badge rejected">部分冲突，不采纳数字</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/68d3dd5400000000130367c2">斐济旅行必备物品及注意事项1（个人分享）</a></h3><div class="research-meta">琳 ♏ · 2025-09-24 · 24 条评论</div><p>复现澳标转换头、驱蚊、长袖水母衣、晕船药和纸质订单；评论再次提醒任何食品均应申报。</p><span class="evidence-badge verified">多篇一致 + 官方支持</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/68ea8899000000000301282e">🇫🇯斐济🏝️｜J人准备清单📝史上最全！</a></h3><div class="research-meta">ggb · 2025-10-12 · 6 条评论</div><p>强调防晒、驱蚊、晕船药、澳标转换头和防水袋；无人机属于额外许可事项，本团无明确需求，列为可不带。</p><span class="evidence-badge verified">物资共识</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/67bea65400000000070355db">斐济🇫🇯必带清单！宝子看这一篇就够了！</a></h3><div class="research-meta">kk甜饼怪 · 2025-02-26 · 66 条评论</div><p>防蚊、速干浴巾、干湿分离袋和长袖浮潜服被多条评论认可；脚蹼和救生衣通常由酒店/运营方提供。</p><span class="evidence-badge experience">高频实用物资</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/6a4dfb5600000000110079b2">亲测斐济入境 带了图1这些食物没问题</a></h3><div class="research-meta">我是泡泡老板 · 2026-07-08 · 21 条评论</div><p>“带食品勾 Yes”可采；评论中“藏好点、分开放”与斐济海关如实申报要求冲突，绝不采用。</p><span class="evidence-badge rejected">申报采纳，规避检查不采纳</span></div>
+        </div></article>
+
+        <article class="card wide"><span class="tag orange">浮潜与涉水 · 5 篇</span><div class="research-list">
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/6a759fb80000000022014056">斐济lomani浮潜一次讲清楚！（新手友好）</a></h3><div class="research-meta">爚輲寗 · 2026-08-07 · 25 条评论</div><p>零基础应先在泳池适应呼吸，主动告诉工作人员自己怕水；评论确认酒店供面镜、呼吸管、脚蹼，水母衣和浮潜袜需自备。</p><span class="evidence-badge experience">新手流程强参考</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/6825a64d00000000120072cc">🇫🇯不会游泳+英语不好+近视的人能浮潜嘛？</a></h3><div class="research-meta">Joyce呀 · 2025-05-16 · 29 条评论</div><p>穿救生衣、步入式下水、先练呼吸、需要时一对一陪同；任何不适立刻停止并求助，比“来都来了”更重要。</p><span class="evidence-badge verified">安全共识</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/69d4e7a4000000001d01f757">斐济fiji浮潜点碎碎念</a></h3><div class="research-meta">外卖群老字号 · 2026-04-07 · 65 条评论</div><p>天气和时段直接影响能见度；评论记录暴雨导致活动退款，支持“海况差就取消，不以已付款为由下水”。</p><span class="evidence-badge experience">海况取消参考</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/6a004664000000000702ed44">🤿新手浮潜购物清单 买刚需✅别浪费钱❌</a></h3><div class="research-meta">Olive Tang · 2026-05-10 · 4 条评论</div><p>防水手机袋、长袖衣、浮潜袜、干袋和速干浴巾使用率高；手套、帽子、全套自购装备未必需要。</p><span class="evidence-badge experience">买刚需、少买低频件</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/68c8d3c7000000001b0376c2">Day 3｜斐济浮潜初体验 🤿🐠</a></h3><div class="research-meta">草莓荔枝荔枝🍓 · 2025-09-16 · 2 条评论</div><p>工作人员关注落后队员、提供漂浮辅助可显著改善新手体验；只能作为个别运营方经验，不能假定所有团都有人一对一照看。</p><span class="evidence-badge experience">个体体验，不外推</span></div>
+        </div></article>
+
+        <article class="card wide"><span class="tag">刷卡、换汇与现金 · 5 篇</span><div class="research-list">
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/6a44c5b6000000001702d186">🇫🇯斐济旅游马上回</a></h3><div class="research-meta">黑 · 2026-07-01 · 17 条评论</div><p>两人换 FJ$650 最终现金仅用约 FJ$100，外岛酒店和 Cloud 9 无现金；评论补充现金主要用于司机。</p><span class="evidence-badge experience">少量现金更合理</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/68c7e091000000001c00f5e9">斐济楠迪机场换汇最优选择</a></h3><div class="research-meta">ofiwine · 2025-09-15 · 28 条评论</div><p>同一机场不同柜台汇率也不同；评论主张 ATM 取现。结论不是“固定哪家最好”，而是现场比较净到手金额与银行卡手续费。</p><span class="evidence-badge experience">汇率会变，现场比较</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/69833cea000000000a033acc">斐济🇫🇯二三事</a></h3><div class="research-meta">喂！我在这呢 · 2026-02-04 · 25 条评论</div><p>多数场景刷国际银行卡；作者回复称某些微信折算成本高于银行卡约 2% 手续费，支持先问清最终币种和全成本。</p><span class="evidence-badge experience">支付前问清全成本</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/69b62bd9000000002800817f">自由行之斐济篇</a></h3><div class="research-meta">心无沉浮了无痕 · 2026-03-15 · 21 条评论</div><p>Cloud 9 等场景只收卡，酒店/旅游消费可能收刷卡附加费；现金仍用于小额交通和本地商户。</p><span class="evidence-badge verified">与旅游局提示一致</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/695dbfcc000000002203a21e">🇫🇯斐济solo trip五天四晚攻略🌍懒人版</a></h3><div class="research-meta">水晶贝壳🐚 · 2026-01-07 · 33 条评论</div><p>酒店前台可刷卡预订项目和结算接送，现金用于出租车；保留白色收据的做法适合本团账务留痕。</p><span class="evidence-badge experience">凭证留存可采</span></div>
+        </div></article>
+        <article class="card full"><span class="tag orange">生活、飞行与拍摄 · 7 篇</span><div class="research-list">
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/68d3dd5400000000130367c2">斐济旅行必备物品及注意事项1（个人分享）</a></h3><div class="research-meta">琳 ♏ · 2025-09-24 · 24 条评论</div><p>作者自带一次性床品、旅行装洗护和吹风机；评论说明酒店通常有吹风机，但风力未必够。结论是长发厚发可带双电压/240V 机型，其他人先问酒店。</p><span class="evidence-badge experience">洁癖与发量决定，不是人人必带</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/68ea8899000000000301282e">🇫🇯斐济🏝️｜J人准备清单📝史上最全！</a></h3><div class="research-meta">ggb · 2025-10-12 · 6 条评论</div><p>洗发水、沐浴露、补水喷雾、润唇膏、晒后修复、风筒和纸巾使用率高；但泡面属于食品，带了就要申报。</p><span class="evidence-badge verified">生活用品可采，食品按入境规则处理</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/69d61f8e000000001a02b293">男生旅行必带清单｜照着打包，再也不丢三落四</a></h3><div class="research-meta">小王同学 · 2026-04-08 · 9 条评论</div><p>男生高频遗漏集中在剃须刀、止汗用品、洗面奶、一次性内裤和备用袜。笔记中的充电宝容量说法不作为航空依据，页面改按 Wh 和民航规则判断。</p><span class="evidence-badge experience">清单可采，电池规则另核</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/699d64f2000000001a030ae7">澳洲回来，分享下长途飞行的好物。亲身体验</a></h3><div class="research-meta">爱美丽更爱生活 · 2026-02-24 · 88 条评论</div><p>颈枕、充气脚垫和压力袜能提升部分人的舒适度。压力袜要选合适尺码；脚垫是否能用由航司和机组决定，起降、过道和出口排不能占用。</p><span class="evidence-badge experience">舒适用品，不替代活动小腿</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/68848271000000000b01dab9">提供一个极致轻便摄影素材备份思路📹</a></h3><div class="research-meta">行走的葉 · 2025-07-26 · 45 条评论</div><p>读卡器/拓展坞加移动硬盘可不带电脑转存；评论提醒每天约 100GB 素材时仍以电脑备份更稳。团队应保留存储卡原件，再做第二份副本。</p><span class="evidence-badge experience">两份副本比带很多镜头更重要</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/69917397000000001b01feb9">旅行摄影装备清单｜A7C II + 旅行镜头组</a></h3><div class="research-meta">笃悠悠 Michael.Z · 2026-02-15 · 70 条评论</div><p>机身、通用焦段镜头、收音、支撑和备份是完整链条；评论也说明具体机型和镜头属于个人偏好。本页只列功能，不替团队指定品牌。</p><span class="evidence-badge experience">按任务配设备，不照抄器材型号</span></div>
+          <div class="research-item"><h3><a href="https://www.xiaohongshu.com/explore/695b4365000000000a0330b3">潜水保险备注</a></h3><div class="research-meta">Rui · 2026-01-05 · 24 条评论</div><p>评论反映旧产品“乐悠游”曾出现官网找不到、转售渠道不清的问题。保险不能靠旧攻略下单，最终以当前在售产品、保单条款和官方保单查询结果为准。</p><span class="evidence-badge rejected">旧产品名不沿用</span></div>
+        </div></article>
+        <article class="card full"><div class="good"><strong>怎么判断：</strong>机场实体卡、护照实名、240V/50Hz、Type I 插座、防晒驱蚊、少量现金配国际卡，都有官方资料托底。酒店吹风机风力、某个岛的信号、颈枕是否好睡，属于个人体验。食品藏起来、人均必须换 2000 FJD、充气脚垫一定能用，这些说法不采纳。</div></article>
+      </div>
+    </section>
+
+    <section id="sim">
+      <div class="section-head"><div class="section-no">03</div><div><h2>实体电话卡：到楠迪机场买</h2><p>本团全部按实体 SIM 执行，不在国内买来路不明的“斐济卡”。两家运营商都按游客身份办卡，偏远海岸、外岛和海上仍可能没信号。</p></div></div>
+      <div class="grid">
+        <article class="card wide"><span class="tag">团队首选组合</span><h3>Vodafone 一张，Digicel 一张，核心联系人分开买</h3><div class="verdict"><strong>通信负责人：</strong>Vodafone Fiji <em>physical Tourist SIM</em>，到楠迪机场官方柜台说明停留 8 天，让店员给出覆盖全程的最低档。Vodafone 官网没有公布固定套餐名和价格，不在页面里编型号。</div><div class="verdict"><strong>副负责人：</strong>Digicel <em>Traveler 50</em>，官方价 FJ$50、180GB、15 天、60 分钟跨网/部分国际通话，覆盖 8 天行程更稳。</div><p><strong>普通成员：</strong>可买 Digicel <em>Traveler 25</em>（FJ$25、75GB、7 天）。它便宜，但比本次行程短一天；接受最后一天依靠团队热点/酒店 Wi‑Fi 才选。想全程不用操心，直接 Traveler 50。</p></article>
+        <article class="card wide"><span class="tag gold">购买平台</span><h3>哪里买，怎么买</h3><div class="platform"><b>1</b><div><strong>首选：楠迪机场 Vodafone / Digicel 官方门店</strong><p>过移民、取行李和生物安全检查后购买。两家官网都写明机场可办，Vodafone 还明确要求本人出示实体护照。</p></div></div><div class="platform"><b>2</b><div><strong>不推荐：淘宝、支付宝或国内旅游店预售卡</strong><p>套餐有效期、是否游客卡、实名激活和售后很难核对。即使页面写“斐济本地卡”，也不等于机场官方 Tourist SIM。</p></div></div><div class="platform"><b>3</b><div><strong>无需提前付款预订</strong><p>出发前只把产品名和官网截图存好。到柜台看当日价，确认实体卡、天数和总价再付款。</p></div></div></article>
+        <article class="card"><h3>柜台直接给店员看</h3><p lang="en">“Physical tourist SIM, please. We stay for eight days. Please show me the cheapest plan valid for the whole trip, activate it and test mobile data before I leave.”</p><ul><li>Digicel：说清 <strong>Traveler 50</strong>；若选省钱方案则说 Traveler 25。</li><li>Vodafone：问清套餐有效期是否至少 8 天。</li><li>拍套餐板、SIM 卡套和收据。</li></ul></article>
+        <article class="card"><h3>到柜台照这个顺序做</h3><ol><li>本人拿实体护照实名。</li><li>先问总价、有效期、通话分钟和是否自动续费。</li><li>让店员装卡并激活。</li><li>现场打开网页、发微信消息、拨一次本地电话。</li><li>记下本机号码、余额查询和充值办法。</li></ol></article>
+        <article class="card"><h3>出发前每人随身</h3><ul><li>换卡针 1 枚，返程换回中国卡还要用。</li><li>写姓名的 SIM 卡收纳盒，别夹在手机壳里。</li><li>确认手机无运营商锁。</li><li>银行、微信和邮箱密码记牢，不只依赖短信验证码。</li><li>离线地图、酒店地址和司机号码。</li></ul></article>
+        <article class="card"><h3>单卡槽怎么处理</h3><ol><li>到达机场、需收银行验证码时先保留中国 SIM。</li><li>完成酒店/订单验证后关机换斐济卡；中国卡放带标签卡套。</li><li>需要验证码时，在安全室内关机换回中国卡；不要热插拔。</li><li>返程前在酒店换回中国 SIM，确认能收到短信再去机场。</li></ol></article>
+        <article class="card"><h3>双卡槽怎么设置</h3><ol><li>中国 SIM 只保留通话/SMS，关闭<strong>数据漫游</strong>。</li><li>斐济卡设为默认移动数据和本地通话。</li><li>关闭“允许蜂窝数据切换/智能切换”，防止中国卡偷跑流量。</li><li>关闭相册云备份、应用自动更新和视频自动播放。</li></ol></article>
+        <article class="card"><h3>不要这样做</h3><ul><li>不要让 11 人全买同一家运营商。</li><li>不要只因市区可能便宜，就让全队落地后失联等候。</li><li>不要把中国 SIM 裸放钱包或手机壳夹层。</li><li>不要把手机信号当海上救生保障；两网都可能失联。</li></ul></article>
+        <article class="card"><h3>必存号码</h3><ul><li>Vodafone：+679 9902123；余额 *131#。</li><li>Digicel：123（网内客服）；余额可用 MyDigicel 或 *131#。</li><li>团队负责人、司机、酒店、活动方存“本机 + 纸质卡”。</li><li>每天出发前在群里发当日集合点和失联规则。</li></ul></article>
+      </div>
+    </section>
+
+    <section id="insurance">
+      <div class="section-head"><div class="section-no">04</div><div><h2>保险：官网买，按是否浮潜分两档</h2><p>本团最多参加正规运营方组织的休闲浮潜，不参加水肺或自由潜。先看医疗和医疗运送，再看产品是否把浮潜写进条款。</p></div></div>
+      <div class="grid">
+        <article class="card wide"><span class="tag orange">参加浮潜 · 默认推荐</span><h3>美亚“潜游保·美亚蓝”</h3><p class="price">约 ¥520 / 人</p><p>8—10 天当前费率参考；医疗补偿 70 万元、海洋生物伤害医疗 5 万元、医疗运送和送返 50 万元。条款明确承保休闲浮潜，并说明浮潜不受水肺/自由潜四项条件限制，但仍须遵守当地水域安全管理。</p><div class="good"><strong>结论：</strong>只要计划参加一次浮潜，也优先买这一档。预算有限可比较<strong>深蓝约 ¥365</strong>，但医疗 40 万、医疗运送仅 20 万，海岛转运余量明显更小。</div></article>
+        <article class="card wide"><span class="tag">明确不浮潜</span><h3>美亚“万国游踪·全球无忧”</h3><p class="price">约 ¥270 / 人</p><p>18—70 周岁、8—10 天官方费率；适合常规观光和城市活动。只推荐给确定不浮潜的成员。临时想下水，不能想当然地把普通境外险当成浮潜险，先查自己的保单。</p><div class="warning"><strong>别只看公司名：</strong>同一家保险公司的不同产品、不同计划，水上活动责任也可能不一样。</div></article>
+        <article class="card wide"><span class="tag gold">最省心的购买办法</span><h3>直接走美亚产品页</h3><div class="platform"><b>首</b><div><strong><a href="https://www.tmt.aig.com.cn/m/insurance/insurance_detail/289108">潜游保官方产品页</a></strong><p>页面显示“美亚财产保险有限公司”，由行天下提供技术服务。选择目的地斐济、2026-08-25 至 2026-09-01、美亚蓝计划，确认后在线投保。</p></div></div><div class="platform"><b>备</b><div><strong><a href="https://www.tmt.aig.com.cn/insurance/insurance_detail/289111">万国游踪·全球无忧产品页</a></strong><p>只给不参加浮潜的人。付款前以页面最终费率、年龄范围和可售状态为准。</p></div></div><p class="note">下单后用美亚保单查询页核对姓名、护照号、目的地、保障日期和计划档位；电子保单同时保存到手机、云盘并发给家属。</p></article>
+        <article class="card wide"><span class="tag">淘宝 / 支付宝怎么选</span><h3>可以比价，但这次不作为首选</h3><div class="decision-row"><div><strong>淘宝</strong><div class="note">只有看到完整产品名“探索卫士·潜游保”、计划名“美亚蓝”、承保公司和条款版本都一致，才继续。</div></div><span class="answer">不优先</span></div><div class="decision-row"><div><strong>支付宝 / 蚂蚁保</strong><div class="note">平台与美亚有过合作不代表当前一定销售这款潜游保；搜索到“境外险”也不能替代条款核对。</div></div><span class="answer">不优先</span></div><div class="decision-row"><div><strong>美亚产品页</strong><div class="note">产品、计划和费率在同一页面，保单查询与报案路径清楚。</div></div><span class="answer">推荐</span></div></article>
+        <article class="card"><h3>下单时逐项核对</h3><ol><li>目的地选择 Fiji / 斐济。</li><li>保障期为 8/25 离家至 9/1 到家；不要少一天。</li><li>参加浮潜者选“美亚蓝”，不要误点蔚蓝或普通旅行险。</li><li>姓名拼音、护照号、出生日期与护照一致。</li><li>付款前下载条款，截图保额和浮潜定义。</li></ol></article>
+        <article class="card"><h3>下单前核对</h3><ul><li>目的地写 Fiji/斐济，保障 8/25 离家至 9/1 到家。</li><li>确认“休闲浮潜”在承保定义内。</li><li>既往症、酒后涉水、擅自离队、无资质经营者的除外责任。</li><li>是否先垫付、能否直付；转院前是否必须先联系救援。</li><li>名字、证件号和出生日期必须与护照一致。</li></ul></article>
+        <article class="card"><h3>报名浮潜前</h3><ul><li>核对经营者合法资质、责任险、船只和带队人员。</li><li>询问救生衣、浮具、人数与教练/救生员比例。</li><li>确认天气/海况取消和退款规则，不接受“已付款必须下水”。</li><li>结伴下水，明确 buddy；不会游泳者提前说明并要求近距离照看。</li></ul></article>
+        <article class="card full"><h3>出险与珊瑚伤处理</h3><p><strong>先离水、止血和求助，再报案。</strong>珊瑚擦伤用清洁淡水充分冲洗，去除可见异物并覆盖干净敷料；伤口深、异物取不净、红肿热痛加重或发热时尽快就医。非危及生命的昂贵治疗、转院或医疗包机，先联系保险救援中心。保存活动订单、经营者信息、事故时间地点、现场照片、诊断、处方、发票、费用清单和登机牌。美亚报案：<strong>+86 400 820 8858</strong>；24 小时救援：<strong>+86 400 888 3080</strong>。出发前再以电子保单首页号码为准。</p><div class="source-strip"><a href="https://www.xiaohongshu.com/explore/695b4365000000000a0330b3">小红书：旧产品找不到的踩坑记录</a><a href="https://www.xiaohongshu.com/explore/683514be00000000230159fd">小红书：美亚官方潜水险说明</a><a href="https://www.tmt.aig.com.cn/insurance/policy_search">美亚保单查询</a><a href="https://www.tmt.aig.com.cn/insurance/claim">报案与理赔</a></div></article>
+      </div>
+    </section>
+
+    <section id="payment">
+      <div class="section-head"><div class="section-no">05</div><div><h2>酒店信用卡垫付：先收款、再刷卡、后对账</h2><p>默认按 11 名成人、5 晚、两人一间处理：5 间双人房 + 1 间单人房，酒店合计约人民币 1 万元，由一名随团持卡人到店垫付。</p></div></div>
+      <div class="grid">
+        <article class="card wide"><span class="tag orange">今天书面确认</span><h3>约 ¥10,000 到底包含什么</h3><ul><li>房型数量是否确为<strong>5 间双人房 + 1 间单人房</strong>，入住人与房型名单无误。</li><li>是否已含单人房差价、税费、服务费、早餐、加床/城市费用。</li><li>合同基准币种是 FJD、USD 还是 CNY；最终含税总价多少。</li><li>信用卡附加费比例、押金/预授权金额、退房后释放时间。</li><li>持卡人是否必须本人到场；订单姓名与持卡人不同是否要授权书。</li><li>取消、缩住、房损和退款分别按什么币种、什么汇率处理。</li></ul></article>
+        <article class="card wide"><span class="tag">持卡人准备</span><h3>额度不要只留一万元</h3><ul><li>出发前至少预留<strong>约 ¥20,000 可用额度</strong>，覆盖房费、押金/预授权、汇率波动和重复扣款缓冲。</li><li>携带另一张<strong>不同卡组织</strong>的备用信用卡，例如 Visa + Mastercard，分开放置。</li><li>开通境外线下交易和境外无卡交易，记住发卡行境外客服电话。</li><li>提前确认境外交易手续费、货币转换费和短信/APP 风控验证方式。</li><li>把酒店书面回复、订单和预算截图保存在手机离线文件夹。</li></ul></article>
+        <article class="card wide"><span class="tag gold">币种选择</span><h3>拒绝 DCC，先看合同币种</h3><div class="verdict"><strong>订单基准价是 FJD：</strong>POS 终端选择 FJD，拒绝转成 USD/CNY，让发卡行完成换汇。</div><p><strong>合同明确以 USD 计价：</strong>要求酒店同时给出刷 USD 与刷 FJD 的最终含税/含手续费金额，再比较“酒店汇率 + 刷卡费 + 发卡行货转费”的全成本，选更低者。不要只看屏幕上的即时人民币提示。</p></article>
+        <article class="card wide"><span class="tag">先收款后垫付</span><h3>11 人对账流程</h3><div class="payment-flow"><div class="payment-step"><strong>先收基础款：</strong>按 ¥10,000 暂估全员均摊，每人先转约 <strong>¥910</strong>；收款表记录姓名、金额、时间。</div><div class="payment-step"><strong>单人房差价：</strong>由单住者在酒店确认最终差价后另行补足，不让其他 10 人平均承担。</div><div class="payment-step"><strong>到店刷卡：</strong>付款前再次确认最终币种、附加费、押金和总额；签购单写明房费还是预授权。</div><div class="payment-step"><strong>退房结算：</strong>以信用卡最终人民币入账金额为准，扣除押金返还和退款后，多退少补；发对账截图给全员。</div></div></article>
+        <article class="card full"><h3>必须留存的五类凭证</h3><div class="table-scroll"><table><tbody><tr><th>凭证</th><th>何时保存</th><th>用途</th></tr><tr><td>订单/合同与酒店书面回复</td><td>出发前</td><td>证明房型、人数、币种、含税价和取消条款</td></tr><tr><td>押金/预授权凭证</td><td>入住时</td><td>跟踪冻结金额和释放时点</td></tr><tr><td>POS 签购单</td><td>每次刷卡后</td><td>核对交易币种、附加费和是否 DCC</td></tr><tr><td>最终酒店账单</td><td>退房前</td><td>确认所有房间、早餐、税费和杂费已结清</td></tr><tr><td>信用卡入账/退款截图</td><td>入账后</td><td>按实际人民币金额多退少补</td></tr></tbody></table></div></article>
+        <div class="check-group card full"><h3>酒店垫付专项检查</h3>
+          <div class="check-item"><input type="checkbox" id="pay1" data-level="must"><label for="pay1">已书面确认 5 间双人房 + 1 间单人房、5 晚、入住名单</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="pay2" data-level="must"><label for="pay2">约 ¥10,000 是否含税、早餐、单人房差价和刷卡费已确认</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="pay3" data-level="must"><label for="pay3">持卡人可用额度约 ¥20,000，且有不同卡组织备用卡</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="pay4" data-level="must"><label for="pay4">押金/预授权金额、释放时间、持卡人到场要求已确认</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="pay5" data-level="must"><label for="pay5">基础款已按约 ¥910/人预收，单房差价由单住者补足</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="pay6" data-level="must"><label for="pay6">订单、预授权、签购单、最终账单和入账截图保存路径已建</label><span class="level must">必做</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="entry">
+      <div class="section-head"><div class="section-no">06</div><div><h2>证件、入境与申报</h2><p>中国护照目前在斐济免预先签证，但免签不等于无条件入境。</p></div></div>
+      <div class="grid">
+        <article class="card wide"><h3>随身文件包（每人）</h3><ul><li>护照原件 + 资料页彩色复印件 2 份。</li><li>全程电子客票/返程票、住宿订单。</li><li>英文邀请函、访问日程、斐方联系人姓名电话。</li><li>旅行保险保单和救援电话。</li><li>资金证明：国际信用卡 + 少量现金；团队负责人额外留统一材料。</li><li>所有文件存“手机离线 + 云盘 + 纸质”三份。</li></ul></article>
+        <article class="card wide"><h3>入境口径</h3><ul><li>中国在官方免签名单；符合条件者入境时获访客许可，最长可到 4 个月。</li><li>访客许可允许旅游、会议等活动，但<strong>不得就业</strong>。学术交流说明应与邀请函一致，不说成带薪工作。</li><li>机上填写 Fiji Passenger Arrival Card，每位旅客各填一张，正反面均完成。</li><li>如经停黄热病风险国家超过 12 小时，提前向医生/航司核实黄热病证书要求。</li></ul></article>
+        <article class="card full"><span class="tag orange">申报原则：宁可勾 Yes</span><h3>食品、药品和户外装备别侥幸</h3><table><tbody><tr><th>必须申报/谨慎</th><th>建议动作</th><th>原因</th></tr><tr><td>任何食品：密封零食、茶叶、泡面调料、蜂蜜、肉制品</td><td>能不带就不带；带了全部申报</td><td>斐济海关明确列“food of any kind”</td></tr><tr><td>处方药、受控药</td><td>原包装、处方/医生英文说明、仅个人合理用量</td><td>海关可能核验医疗必要性</td></tr><tr><td>穿过的涉水鞋、登山鞋、工具、露营装备</td><td>彻底刷净泥土、晒干并申报</td><td>属生物安全风险物品</td></tr><tr><td>植物、种子、木制品、土壤、贝壳、动物制品</td><td>不要带；不确定就投入申报弃置箱</td><td>高风险检疫类别</td></tr><tr><td>现金达到 FJ$10,000 或等值外币</td><td>在入境卡申报并填货币报告表</td><td>法定申报门槛</td></tr></tbody></table><p class="warning">未申报生物安全物品可被现场罚 FJ$400；严重情况可起诉。最安全的话术是：“I have food/medicine to declare.”</p></article>
+      </div>
+    </section>
+
+    <section id="packing">
+      <div class="section-head"><div class="section-no">07</div><div><h2>物资：从飞机座位细到酒店浴室</h2><p>8 月是干季，白天轻薄、早晚加一层；苏瓦一侧仍可能遇到阵雨。先把必带装好，再看洁癖、发量、经期和拍摄任务决定选带项。</p></div></div>
+      <nav class="packing-index" aria-label="物资分类"><a href="#pack-flight">飞机随身</a><a href="#pack-hotel">酒店生活</a><a href="#pack-women">女生</a><a href="#pack-men">男生</a><a href="#pack-clothes">衣物</a><a href="#pack-water">海边</a><a href="#pack-health">药品</a><a href="#pack-camera">相机</a></nav>
+
+      <div class="grid">
+        <div class="check-group card full packing-anchor" id="pack-flight"><div class="group-kicker">Cabin bag · 随身不托运</div><h3>长途飞行与机上过夜</h3><p class="check-note">斐济航空国际经济舱手提行李通常为 1 件、7kg，尺寸不超过 55×40×20cm；以机票实际承运航司为准。</p>
+          <div class="check-item"><input type="checkbox" id="f1" data-level="must"><label for="f1">护照、登机牌、住宿与返程订单、保险保单、黑色签字笔</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="f2" data-level="must"><label for="f2">手机、耳机、充电线、多口充电头；充电宝放随身包且关闭</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="f3" data-level="must"><label for="f3">常用药和处方药、晕机/晕船药；原包装，不放托运行李</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="f4" data-level="must"><label for="f4">薄外套或大披肩、长裤、干净袜子；机舱冷时直接加穿</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="f5" data-level="must"><label for="f5">牙刷、小牙膏、湿巾、纸巾、口罩、护手霜和润唇膏</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="f6" data-level="must"><label for="f6">随身液体每瓶不超过 100mL，全部装进 1L 可重复封口透明袋</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="f7" data-level="must"><label for="f7">一套轻薄换洗衣物与内裤，防托运行李延误</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="f8" data-level="opt"><label for="f8">有支撑的 U 型枕/围脖枕、眼罩、耳塞或降噪耳机</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="f9" data-level="opt"><label for="f9">合脚的医用梯度压力袜；静脉曲张、既往血栓、近期手术/孕产期等先问医生</label><span class="level opt">按需</span></div>
+          <div class="check-item"><input type="checkbox" id="f10" data-level="must"><label for="f10">飞行超过 4 小时，每 1—2 小时活动小腿或走动；压力袜不能替代活动</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="f11" data-level="opt"><label for="f11">充气脚垫：只在巡航时询问乘务员后使用，不挡过道，不放出口排，起降前收起</label><span class="level opt">先问航司</span></div>
+          <div class="check-item"><input type="checkbox" id="f12" data-level="opt"><label for="f12">空水杯、折叠拖鞋、一次性坐便套、酒精湿巾</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="f13" data-level="opt"><label for="f13">少量密封零食只供途中吃完；剩余食品入境斐济必须申报</label><span class="level opt">少量</span></div>
+          <div class="check-item"><input type="checkbox" id="f14" data-level="skip"><label for="f14">厚重脚垫、大毛毯、颈部按摩仪、体积大的硬壳枕</label><span class="level skip">可不带</span></div>
+        </div>
+
+        <div class="check-group card wide packing-anchor" id="pack-hotel"><div class="group-kicker">Hotel &amp; daily life</div><h3>酒店与日常生活用品</h3><p class="check-note">酒店用品因房型而异。牙刷、拖鞋、吹风机和洗护用品先发邮件问酒店；没得到明确回复就按下面准备。</p>
+          <div class="check-item"><input type="checkbox" id="h1" data-level="must"><label for="h1">牙刷、牙膏、牙线/牙线棒、漱口水旅行装</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="h2" data-level="must"><label for="h2">洗发水、护发素、沐浴露、洗面奶，50—100mL 分装并贴标签</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="h3" data-level="must"><label for="h3">梳子、发圈/发夹、剃须用品、指甲剪和小镊子</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="h4" data-level="must"><label for="h4">洗脸巾/小毛巾、纸巾、湿厕纸、酒精湿巾</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="h5" data-level="must"><label for="h5">一次性内裤/日常内裤：按 8 天 + 2 条；袜子按 8 天 + 2 双</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="h6" data-level="must"><label for="h6">睡衣 1 套、室内拖鞋 1 双、洗澡拖鞋 1 双</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="h7" data-level="must"><label for="h7">脏衣袋、湿泳衣袋、密封袋若干；干湿分开</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="h8" data-level="opt"><label for="h8">洗衣片/小瓶洗衣液、便携晾衣绳、夹子、折叠衣架 2—3 个</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="h9" data-level="opt"><label for="h9">一次性床单被套或隔脏睡袋、一次性枕套；皮肤敏感或洁癖再带</label><span class="level opt">按需</span></div>
+          <div class="check-item"><input type="checkbox" id="h10" data-level="opt"><label for="h10">一次性马桶垫、马桶消毒湿巾、一次性浴巾</label><span class="level opt">按需</span></div>
+          <div class="check-item"><input type="checkbox" id="h11" data-level="opt"><label for="h11">吹风机：长发/厚发且在意风力再带；铭牌须支持 220—240V，转换头须能承受其功率</label><span class="level opt">先问酒店</span></div>
+          <div class="check-item"><input type="checkbox" id="h12" data-level="opt"><label for="h12">便携烘干袋/小烘干机：连续涉水、衣物不易干时才带，确认 240V 与功率</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="h13" data-level="opt"><label for="h13">折叠烧水壶或杯式加热器：有使用习惯再带，确认 240V；不用酒店插线板带大功率电器</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="h14" data-level="opt"><label for="h14">电子驱蚊液 + 替换片；房间无纱窗时使用，按产品说明通风</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="h15" data-level="skip"><label for="h15">整瓶家庭装洗护、大瓶消毒液、厚重四件套、陶瓷杯</label><span class="level skip">可不带</span></div>
+        </div>
+
+        <div class="check-group card wide packing-anchor" id="pack-women"><div class="group-kicker">For women · 按个人需要</div><h3>女生容易漏掉的东西</h3>
+          <div class="check-item"><input type="checkbox" id="g1" data-level="must"><label for="g1">内裤 8 天 + 2 条或合身透气的一次性内裤；出发前先试穿</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="g2" data-level="must"><label for="g2">文胸/运动内衣、无痕内衣，按衣物和涉水安排准备</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="g3" data-level="must"><label for="g3">卫生巾/棉条、护垫、卫生袋；预计经期外也备 2—3 片</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="g4" data-level="opt"><label for="g4">经期止痛药、暖贴；只带自己用过且无禁忌的</label><span class="level opt">按需</span></div>
+          <div class="check-item"><input type="checkbox" id="g5" data-level="must"><label for="g5">卸妆油/膏和卸妆棉，耐水防晒每天要卸干净</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="g6" data-level="must"><label for="g6">日常护肤：洁面、保湿、眼霜/面霜、润唇膏；小瓶分装</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="g7" data-level="opt"><label for="g7">化妆品精简为底妆、眉眼、唇妆；粉底和喷雾算液体</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="g8" data-level="must"><label for="g8">护发素/发膜小样、宽齿梳、发圈 6—10 根、鲨鱼夹 1 个</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="g9" data-level="opt"><label for="g9">卷发棒/直板夹：确实会用再带，铭牌支持 220—240V</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="g10" data-level="must"><label for="g10">泳衣 2 套、长袖水母衣 1 套；轮换晾干，避免湿着穿</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="g11" data-level="opt"><label for="g11">防磨膏/凡士林、乳贴、泳衣安全扣、素色纱笼</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="g12" data-level="must"><label for="g12">隐形眼镜按天数 + 2 副、护理液 ≤100mL、备用框架眼镜</label><span class="level must">如适用</span></div>
+          <div class="check-item"><input type="checkbox" id="g13" data-level="opt"><label for="g13">私密清洁产品只带日常使用款，不临时更换新品</label><span class="level opt">按需</span></div>
+          <div class="check-item"><input type="checkbox" id="g14" data-level="skip"><label for="g14">多套高跟鞋、整盒首饰、超大化妆包、从未试过的护肤品</label><span class="level skip">可不带</span></div>
+        </div>
+
+        <div class="check-group card wide packing-anchor" id="pack-men"><div class="group-kicker">For men · 按个人需要</div><h3>男生容易漏掉的东西</h3>
+          <div class="check-item"><input type="checkbox" id="b1" data-level="must"><label for="b1">内裤 8 天 + 2 条或合身透气的一次性内裤；袜子 8 天 + 2 双</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="b2" data-level="must"><label for="b2">剃须刀、替换刀头、剃须泡沫/啫喱旅行装、须后护理</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="b3" data-level="opt"><label for="b3">电动理发器/修须器及专用充电线；短途没需要可不带</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="b4" data-level="must"><label for="b4">洗面奶、保湿乳、润唇膏、SPF50+ 面部防晒</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="b5" data-level="must"><label for="b5">止汗膏/体香剂，选固体或 ≤100mL 旅行装</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="b6" data-level="must"><label for="b6">泳裤 2 条、长袖水母衣 1 套，轮换晾干</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="b7" data-level="must"><label for="b7">速干短裤 2 条、长裤 1—2 条、商务休闲腰带</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="b8" data-level="opt"><label for="b8">发泥/发蜡小盒、定型喷雾 ≤100mL；不造型可不带</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="b9" data-level="opt"><label for="b9">防磨膏/爽身粉，易磨腿或长时间步行者准备</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="b10" data-level="must"><label for="b10">备用框架眼镜、隐形眼镜和护理液</label><span class="level must">如适用</span></div>
+          <div class="check-item"><input type="checkbox" id="b11" data-level="skip"><label for="b11">多双皮鞋、整瓶香水、家庭装剃须泡、厚重浴袍</label><span class="level skip">可不带</span></div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="check-group card wide packing-anchor" id="pack-clothes"><div class="group-kicker">Clothing</div><h3>通用衣物与正式访问</h3>
+          <div class="check-item"><input type="checkbox" id="p1" data-level="must"><label for="p1">速干短袖 3—4 件、轻薄长袖 1—2 件</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="p2" data-level="must"><label for="p2">长裤/及膝下装 2 条；村落访问须遮肩盖膝</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="p3" data-level="must"><label for="p3">轻薄防风防雨外套 + 薄卫衣/针织衫</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="p4" data-level="must"><label for="p4">高校/企业会谈用商务休闲套装 1 套、包脚鞋 1 双</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="p5" data-level="opt"><label for="p5">Sulu/大纱笼，可现场购买，也可自带素色款</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="p6" data-level="skip"><label for="p6">多套正装、高跟鞋、厚外套</label><span class="level skip">可不带</span></div>
+        </div>
+        <div class="check-group card wide packing-anchor" id="pack-water"><div class="group-kicker">Water &amp; weather</div><h3>海边、防晒与雨天</h3>
+          <div class="check-item"><input type="checkbox" id="w1" data-level="must"><label for="w1">SPF50+ 广谱、耐水、reef-safe 防晒（避开 oxybenzone / octinoxate）</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="w2" data-level="must"><label for="w2">长袖水母衣/防晒衣、泳衣 2 套</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="w3" data-level="must"><label for="w3">防滑包脚溯溪鞋/礁石鞋，不用普通拖鞋踩珊瑚</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="w4" data-level="must"><label for="w4">干湿分离袋、防水手机袋、10—20L 轻量干袋、速干浴巾</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="w5" data-level="opt"><label for="w5">自己合脸型的浮潜面镜/近视面镜</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="w6" data-level="skip"><label for="w6">脚蹼、救生衣（合规运营方/酒店应提供，报名时先确认）</label><span class="level skip">可不带</span></div>
+          <div class="check-item"><input type="checkbox" id="w7" data-level="must"><label for="w7">宽檐帽、UV400 墨镜及眼镜绳</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="w8" data-level="must"><label for="w8">防晒每人按使用习惯备足，脸和身体分开；每次下水后补涂</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="w9" data-level="opt"><label for="w9">晒后修复凝胶、保湿面膜、身体乳</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="w10" data-level="must"><label for="w10">折叠伞或轻便雨衣、背包防雨罩</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="w11" data-level="opt"><label for="w11">浮潜袜/潜水袜，怕磨脚或自带脚蹼者准备；不能代替包脚礁石鞋</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="w12" data-level="skip"><label for="w12">全脸浮潜面罩、潜水手套、铅带等专用装备；新手不要自行改变运营方装备</label><span class="level skip">不建议</span></div>
+        </div>
+        <div class="check-group card wide packing-anchor" id="pack-health"><div class="group-kicker">Health kit</div><h3>健康与小药包</h3>
+          <div class="check-item"><input type="checkbox" id="m1" data-level="must"><label for="m1">个人处方药：原包装、足量 + 2—3 天余量、英文处方/说明</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="m2" data-level="must"><label for="m2">驱蚊液（DEET 或派卡瑞丁）+ 止痒剂</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="m3" data-level="must"><label for="m3">对乙酰氨基酚、口服补液盐、体温计、晕车/晕船药</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="m4" data-level="must"><label for="m4">创可贴、无菌纱布、伤口消毒用品；Korolevu 现场备防水敷料</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="m5" data-level="opt"><label for="m5">抗过敏药、晒后修复、N95/医用口罩</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="m6" data-level="skip"><label for="m6">散装中草药、保健粉、无标签药片、预防性自用抗生素</label><span class="level skip">不建议</span></div>
+          <div class="check-item"><input type="checkbox" id="m7" data-level="must"><label for="m7">防水创可贴、消毒棉片、无菌纱布、医用胶带和小剪刀（剪刀托运）</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="m8" data-level="must"><label for="m8">个人慢病/过敏/用药信息中英文卡，写紧急联系人</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="m9" data-level="opt"><label for="m9">鼻喷、眼药水、咽喉含片；只带自己平时用过的</label><span class="level opt">按需</span></div>
+          <div class="check-item"><input type="checkbox" id="m10" data-level="must"><label for="m10">药品装透明袋并列清单；处方药附英文处方/医生说明</label><span class="level must">必做</span></div>
+        </div>
+        <div class="check-group card full packing-anchor" id="pack-camera"><div class="group-kicker">Camera &amp; production</div><h3>相机、收音与资料备份</h3><p class="check-note">这里只管设备是否齐全，不展开后续工作流程。相机、电脑、硬盘和备用锂电池都随身，别托运。</p>
+          <div class="check-item"><input type="checkbox" id="e1" data-level="must"><label for="e1">万能转换插头：斐济为 Type I、240V/50Hz；中国两扁脚充电器未必直插</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="e2" data-level="must"><label for="e2">正规、外壳完好、Wh 参数清晰且有清晰 3C 标识的 ≤100Wh 充电宝，仅随身携带</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="e3" data-level="must"><label for="e3">多口充电器、相机/电脑/手机充电线各 1 主 1 备，贴姓名标签</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="e4" data-level="must"><label for="e4">主相机机身、通用焦段镜头、机身盖/镜头盖、肩带或腕带</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="e5" data-level="opt"><label for="e5">轻量插线板（先确认额定电压 250V）</label><span class="level opt">选带</span></div>
+          <div class="check-item"><input type="checkbox" id="e6" data-level="skip"><label for="e6">无人机、用不到的全套镜头、额定能量模糊或外壳破损的充电宝</label><span class="level skip">不带</span></div>
+          <div class="check-item"><input type="checkbox" id="cam1" data-level="must"><label for="cam1">相机电池按一天用量 + 1 块，备用电池单独套袋/保护电极并随身</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="cam2" data-level="must"><label for="cam2">原装/可靠双槽充电器，确认输入支持 100—240V</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="cam3" data-level="must"><label for="cam3">高速存储卡至少 3 张，编号；容量按每天素材量计算并留 30% 余量</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="cam4" data-level="must"><label for="cam4">笔记本电脑或平板、读卡器/拓展坞、移动固态硬盘与连接线</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="cam5" data-level="must"><label for="cam5">备份规则：存储卡保留原件，同时复制到硬盘；确认两份都能打开后再整理</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="cam6" data-level="must"><label for="cam6">无线领夹麦/录音笔、发射器和接收器、领夹、充电盒、3.5mm/USB-C 线</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="cam7" data-level="must"><label for="cam7">防风毛套、监听耳机、备用电池/充电线，出发前做 10 分钟连续录音测试</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="cam8" data-level="opt"><label for="cam8">轻量三脚架/独脚架、快装板和手机夹；带尖脚或工具的配件托运</label><span class="level opt">按任务</span></div>
+          <div class="check-item"><input type="checkbox" id="cam9" data-level="must"><label for="cam9">镜头布、气吹、传感器清洁棒、防雨罩、密封袋和干燥剂</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="cam10" data-level="must"><label for="cam10">相机包/内胆包、防盗扣、行李牌；器材序列号和外观照片已留存</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="cam11" data-level="opt"><label for="cam11">备用机身或高画质手机：主相机故障时能继续拍</label><span class="level opt">建议</span></div>
+          <div class="check-item"><input type="checkbox" id="cam12" data-level="opt"><label for="cam12">ND/CPL 滤镜、遮光罩、小型补光灯；有明确使用场景再带</label><span class="level opt">按任务</span></div>
+          <div class="check-item"><input type="checkbox" id="cam13" data-level="must"><label for="cam13">统一校准相机日期、时区、分辨率、帧率和音频电平；空拍一分钟回看</label><span class="level must">必做</span></div>
+        </div>
+        <article class="card full"><h3>钱与支付</h3><div class="grid"><div style="grid-column:span 6"><p><strong>建议组合：</strong>每人先备 FJ$100—200 小额现金；团队另设 FJ$300—500 应急公款，由两人交叉记账；每人至少一张可境外使用的 Visa/Mastercard。</p><p>20 篇笔记中，较新的实测普遍认为外岛酒店和热门活动多可刷卡或无现金，现金主要用于出租车、小商户和市场；因此不用按“人均 2000 FJD”大量备现。度假村/活动可能另收刷卡附加费，付款前必须问清。</p></div><div style="grid-column:span 6"><ul><li>开通境外交易并记住银行卡客服。</li><li>现金分散放，护照与备用卡不放同一包。</li><li>若订单以 FJD 计价，POS 选择 FJD，拒绝 DCC 转成 USD/CNY。</li><li>ATM/换汇先比较汇率、固定手续费和发卡行取现费。</li></ul></div></div></article>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="section-head"><div class="section-no">08</div><div><h2>D‑8 到登机口</h2><p>按今天 8 月 17 日倒排，不把关键确认拖到最后一晚。</p></div></div>
+      <div class="timeline">
+        <div class="day"><h3>8/17—8/18｜证件、保险与酒店</h3><p>收齐 11 人护照有效期；确定浮潜名单并买对应保险；书面确认 5 间双人房 + 1 间单人房、最终币种、含税价、押金和刷卡费。</p></div>
+        <div class="day"><h3>8/19—8/20｜物资与实体卡</h3><p>确定 Vodafone/Digicel 双网负责人；每人准备换卡针和中国 SIM 收纳卡套；买防晒、驱蚊、礁石鞋、转换插头、药品并清洁涉水鞋。</p></div>
+        <div class="day"><h3>8/21—8/22｜收款与设备通电</h3><p>暂按约 ¥910/人收酒店基础款，单人房差价另补；持卡人确认约 ¥20,000 可用额度和备用卡。相机、收音、读卡器和硬盘全部通电测试一次。</p></div>
+        <div class="day"><h3>8/23—8/24｜48—72 小时复核</h3><p>复核所有航段、行李额、Sunbeam/Pacific Transport、文化村、接待单位、天气和海况；下载离线地图；打印邀请函、住宿与返程材料。</p></div>
+        <div class="day"><h3>8/24 晚｜封箱</h3><p>称重；充电宝、药品、证件、相机电池和一套换洗衣物放随身包；液体单瓶不超过 100mL，统一装入 1L 可封口透明袋。</p></div>
+        <div class="day"><h3>8/25 04:00｜浦东机场</h3><p>证件组、行李组点名；保留每段登机牌和行李条；06:40 前全员到登机口。</p></div>
+      </div>
+    </section>
+
+    <section id="safety">
+      <div class="section-head"><div class="section-no">09</div><div><h2>到了以后最重要的注意事项</h2><p>这部分是“不要因为放松而忘掉”的底线。</p></div></div>
+      <div class="grid">
+        <article class="card"><h3>休闲浮潜底线</h3><ul><li>只参加正规经营者组织的活动，绝不独自浮潜，不越过浮标。</li><li>出发前问潮汐、暗流、风浪和取消标准；海况差就取消。</li><li>全程穿合身救生衣并和 buddy 互相确认；不会游泳、怕水、近视或服药要提前说明。</li><li>面镜进水、呼吸急促、抽筋或恐慌时立即举手求助并离水。</li><li>不摸、不站珊瑚，不追逐海龟、鲨鱼或其他海洋生物。</li></ul></article>
+        <article class="card"><h3>蚊媒与发热</h3><ul><li>驱蚊每日补涂，林地和晨昏穿长袖长裤。</li><li>避免洪水、泥地、河水；有伤口更不要下水。</li><li>出现高热、眼后痛、皮疹、出血点，尽快就医。</li><li>怀疑登革热时，不自行服用阿司匹林或布洛芬；先咨询医生。</li></ul></article>
+        <article class="card"><h3>村落与周日</h3><ul><li>遮肩盖膝，进屋脱鞋。</li><li>进村摘帽和墨镜，包提在手里。</li><li>拍人、仪式、房屋先征得许可。</li><li>不要碰他人头部。</li><li>周日许多商店/餐馆缩短营业，村落游通常停开。</li></ul></article>
+        <article class="card"><h3>城市与交通</h3><ul><li>当地右舵左行，过街先看右侧。</li><li>夜间结伴，少走偏僻路。</li><li>贵重物品不留车内或酒店台面。</li><li>打正规标识出租车，上车前确认计价/费用。</li><li>拍摄人物、房屋或仪式前先征得许可。</li></ul></article>
+        <article class="card wide"><h3>团队四个角色</h3><table><tbody><tr><th>角色</th><th>职责</th></tr><tr><td>证件负责人</td><td>11 人护照/票据清点、每段登机前点名</td></tr><tr><td>通信负责人</td><td>Vodafone 主网、司机/酒店/活动方联系人</td></tr><tr><td>副通信负责人</td><td>Digicel 备网、离线地图和紧急短信树</td></tr><tr><td>健康与设备负责人</td><td>公用药包、事故记录；相机、存储卡和硬盘清点</td></tr></tbody></table></article>
+        <article class="card wide"><h3>紧急电话</h3><div class="contacts"><div class="contact"><span>综合紧急</span><strong>911</strong></div><div class="contact"><span>警察</span><strong>917 / 919</strong></div><div class="contact"><span>火警/救护协调</span><strong>910</strong></div><div class="contact"><span>驻斐济使馆领保</span><strong>+679 999 7321</strong></div><div class="contact"><span>外交部 12308</span><strong>+86 10 12308</strong></div><div class="contact"><span>EMS Fiji</span><strong>+679 770 7700</strong></div><div class="contact"><span>Nadi 高压氧舱</span><strong>+679 892 2241</strong></div><div class="contact"><span>美亚 24h 救援</span><strong>+86 400 888 3080</strong></div></div></article>
+      </div>
+    </section>
+
+    <section id="master">
+      <div class="section-head"><div class="section-no">10</div><div><h2>最终总清单</h2><p>勾选会自动保存在当前浏览器，下次打开仍在；原有勾选项 ID 已保留，避免已有进度错位。</p></div></div>
+      <div class="grid">
+        <div class="check-group card wide"><h3>证件与预订</h3>
+          <div class="check-item"><input type="checkbox" id="c1" data-level="must"><label for="c1">护照有效期、机票姓名、航段全部核对</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c2" data-level="must"><label for="c2">返程票、住宿、邀请函、行程单已离线保存并打印</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c3" data-level="must"><label for="c3">保险 8/25—9/1 全程覆盖；参加浮潜者已选潜游保</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c4" data-level="must"><label for="c4">文化村、交通、接待单位已做 48—72 小时复核</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c5" data-level="must"><label for="c5">每人电子保单和紧急联络卡已发家属</label><span class="level must">必做</span></div>
+        </div>
+        <div class="check-group card wide"><h3>通信与钱</h3>
+          <div class="check-item"><input type="checkbox" id="c6" data-level="must"><label for="c6">Vodafone / Digicel 双网负责人已确定</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c7" data-level="must"><label for="c7">手机已解锁，实体卡方案、单/双卡槽换卡流程已确认</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c8" data-level="must"><label for="c8">中国 SIM 数据漫游关闭，但保留收验证码</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c9" data-level="must"><label for="c9">国际银行卡开通境外交易，小额 FJD 与拒绝 DCC 口径已确认</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c10" data-level="must"><label for="c10">离线地图、行程、通讯录已下载</label><span class="level must">必做</span></div>
+        </div>
+        <div class="check-group card wide"><h3>行李</h3>
+          <div class="check-item"><input type="checkbox" id="c11" data-level="must"><label for="c11">防晒、驱蚊、礁石鞋、水母衣、雨壳</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="c12" data-level="must"><label for="c12">商务休闲装与村落访问遮肩盖膝衣物</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="c13" data-level="must"><label for="c13">个人药、处方、公用伤口处理包</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="c14" data-level="must"><label for="c14">Type I 万能转换头、多口充电器、参数清晰充电宝</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="c15" data-level="must"><label for="c15">相机、收音、电池、存储卡、读卡器和硬盘已装齐并测试</label><span class="level must">必带</span></div>
+        </div>
+        <div class="check-group card wide"><h3>安检与申报</h3>
+          <div class="check-item"><input type="checkbox" id="c16" data-level="must"><label for="c16">充电宝和备用锂电池全部随身，电极防短路</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c17" data-level="must"><label for="c17">随身液体单瓶 ≤100mL，装入 1L 透明袋</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c18" data-level="must"><label for="c18">无鲜果、肉类、种子、散装草药、泥土</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c19" data-level="must"><label for="c19">鞋底和户外装备已清洗干净</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c20" data-level="must"><label for="c20">携带的任何食品/药品准备如实申报</label><span class="level must">必做</span></div>
+        </div>
+        <div class="check-group card wide"><h3>实体 SIM 专项</h3>
+          <div class="check-item"><input type="checkbox" id="c21" data-level="must"><label for="c21">通信负责人买 Vodafone 实体卡，副负责人买 Digicel 实体卡</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c22" data-level="must"><label for="c22">每人携带换卡针和写姓名的中国 SIM 收纳卡套</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="c23" data-level="must"><label for="c23">机场办卡时带实体护照，离柜前完成上网/通话测试</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c24" data-level="must"><label for="c24">中国 SIM 只收短信且关闭数据漫游/蜂窝数据切换</label><span class="level must">必做</span></div>
+        </div>
+        <div class="check-group card wide"><h3>酒店垫付与浮潜</h3>
+          <div class="check-item"><input type="checkbox" id="c25" data-level="must"><label for="c25">酒店最终含税价、币种、刷卡费、押金和单房差已书面确认</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c26" data-level="must"><label for="c26">约 ¥910/人基础款已收，单人房差价由单住者补足</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c27" data-level="must"><label for="c27">持卡人额度约 ¥20,000，有不同卡组织备用卡</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c28" data-level="must"><label for="c28">浮潜经营者资质、救生衣、buddy、海况取消规则已核对</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c29" data-level="must"><label for="c29">活动订单、现场联系人、保险救援电话和出险材料清单已离线保存</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c30" data-level="must"><label for="c30">订单、预授权、POS 签购单、最终账单和入账截图保存路径已建立</label><span class="level must">必做</span></div>
+        </div>
+        <div class="check-group card wide"><h3>生活用品与机上包</h3>
+          <div class="check-item"><input type="checkbox" id="c31" data-level="must"><label for="c31">旅行装洗发、护发、沐浴、洁面、牙刷牙膏和拖鞋已装</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="c32" data-level="must"><label for="c32">内裤/一次性内裤和袜子均按 8 天 + 2 份准备</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="c33" data-level="must"><label for="c33">一次性床品、吹风机、烘干机已按个人需要做取舍</label><span class="level must">必确认</span></div>
+          <div class="check-item"><input type="checkbox" id="c34" data-level="must"><label for="c34">U 型枕/眼罩/耳塞、压力袜和充气脚垫已按需求与航司规则取舍</label><span class="level must">必确认</span></div>
+          <div class="check-item"><input type="checkbox" id="c35" data-level="must"><label for="c35">随身包有证件、药、充电设备、一套换洗和 ≤100mL 液体袋</label><span class="level must">必带</span></div>
+        </div>
+        <div class="check-group card wide"><h3>个人用品与拍摄设备</h3>
+          <div class="check-item"><input type="checkbox" id="c36" data-level="must"><label for="c36">女生用品：经期用品、卸妆、护发、泳衣、隐形眼镜按需装齐</label><span class="level must">必确认</span></div>
+          <div class="check-item"><input type="checkbox" id="c37" data-level="must"><label for="c37">男生用品：剃须、止汗、洗面、泳裤和商务腰带按需装齐</label><span class="level must">必确认</span></div>
+          <div class="check-item"><input type="checkbox" id="c38" data-level="must"><label for="c38">相机、镜头、收音、电池、充电器、存储卡和防雨清洁用品齐全</label><span class="level must">必带</span></div>
+          <div class="check-item"><input type="checkbox" id="c39" data-level="must"><label for="c39">电脑/平板、读卡器和移动硬盘能互相识别，备份试跑成功</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c40" data-level="must"><label for="c40">相机、硬盘和备用锂电池全部放随身包，电池电极已保护</label><span class="level must">必做</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources">
+      <div class="section-head"><div class="section-no">11</div><div><h2>核验来源</h2><p>规则和价格会变；出发前 48—72 小时再打开官方页确认。第 02 节列有 27 篇旅行者笔记，方便回看原文。</p></div></div>
+      <ol class="sources">
+        <li><a href="https://www.immigration.gov.fj/visa-exempted-countries/">Fiji Immigration：免签国家名单（含中国）</a>；<a href="https://www.immigration.gov.fj/visitors-permit/">访客许可</a></li>
+        <li><a href="https://frcs.org.fj/our-services/customs/travellers/visiting-fiji/arriving-in-fiji/">Fiji Revenue &amp; Customs：到达、入境卡、食品/药品/现金申报与罚则</a></li>
+        <li><a href="https://www.digicelpacific.com/mobile/fj/promotions/tourist-sim-plans">Digicel Fiji：Traveler 25 / 50 游客实体 SIM 套餐</a></li>
+        <li><a href="https://www.vodafone.com.fj/personal/price-plans/other-offers/tourist-sim">Vodafone Fiji：机场游客实体 SIM、实体护照实名要求</a></li>
+        <li><a href="https://www.fiji.travel/places-to-go/nadi/locations/navigating-nadi">Tourism Fiji：楠迪机场 SIM、现金、刷卡附加费</a></li>
+        <li><a href="https://www.tmt.aig.com.cn/m/insurance/insurance_detail/289108">美亚“探索卫士·潜游保”：浮潜定义、保额、费率与在线购买</a>；<a href="https://www.tmt.aig.com.cn/insurance/insurance_detail/289111">美亚“万国游踪·全球无忧”</a>；<a href="https://www.tmt.aig.com.cn/insurance/policy_search">保单查询</a></li>
+        <li><a href="https://www.fijiairways.com/media/246988/fiji-airways-terms-and-conditions-of-carriage.pdf">Fiji Airways：手提行李 7kg、55×40×20cm、液体 100mL 与贵重电子设备随身</a></li>
+        <li><a href="https://www.caac.gov.cn/INDEX/HLFW/HKLXCS/202303/t20230316_217597.html">中国民航局：液体、锂电池与充电宝规定</a>；<a href="https://www.caac.gov.cn/XWZX/MHYW/202506/t20250626_227805.html">充电宝 3C 标识与召回型号提醒</a></li>
+        <li><a href="https://www.cdc.gov/blood-clots/risk-factors/travel.html">CDC：长途旅行血栓风险、活动小腿与压力袜</a></li>
+        <li><a href="https://www.fiji.travel/things-to-do/family-friendly-tips/top-tips-for-visiting-fiji-with-kids">Tourism Fiji：240V/50Hz、Type I 插座与官方打包建议</a></li>
+        <li><a href="https://www.met.gov.fj/climate-services/climate-outlooks/">Fiji Meteorological Service：气候展望</a></li>
+        <li><a href="https://www.fiji.travel/things-to-know/healthy-and-safety/healthy-and-hospitals">Tourism Fiji：健康、防晒、登革热</a>；<a href="https://www.fiji.travel/things-to-know/healthy-and-safety/water-safety">涉水安全</a></li>
+        <li><a href="https://www.health.gov.fj/dengue-fever-facts-informations/">Fiji Health：登革热症状与用药注意</a>；<a href="https://www.health.gov.fj/leptospirosis-2/">钩端螺旋体病</a></li>
+        <li><a href="https://www.fiji.travel/things-to-do/arts/10-etiquette-tips-to-remember-when-you-visit-fiji">Tourism Fiji：村落礼仪</a></li>
+        <li><a href="https://fj.china-embassy.gov.cn/lxwm/">中国驻斐济使馆：联系方式</a>；<a href="https://www.mfa.gov.cn/wjbzwfwpt/kzx/tzgg/202304/t20230404_11053935.html">赴斐旅行安全提示</a></li>
+      </ol>
+      <div class="good"><strong>最后一次复核：</strong>2026-08-17。电话卡套餐、保险费率、航司行李限制、天气和入境要求，出发前还要以订单、保单和官方页面当日显示为准。</div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap"><strong>斐济出发前总检查 · 2026-08-17 更新</strong><p class="tiny">天气、班次、套餐和保险销售状态会变化；本页勾选仅保存在当前浏览器本地。</p></div></footer>
+
+  <script>
+    const STORE_KEY = 'fiji-preflight-20260825-v1';
+    const checks = [...document.querySelectorAll('input[type="checkbox"]')];
+    const saved = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+    checks.forEach(c => { c.checked = Boolean(saved[c.id]); c.addEventListener('change', persist); });
+    function persist(){
+      const state = Object.fromEntries(checks.map(c => [c.id, c.checked]));
+      localStorage.setItem(STORE_KEY, JSON.stringify(state));
+      updateProgress();
+    }
+    function updateProgress(){
+      const done = checks.filter(c => c.checked).length;
+      const pct = checks.length ? Math.round(done / checks.length * 100) : 0;
+      document.getElementById('progressFill').style.width = pct + '%';
+      document.getElementById('progressText').textContent = `${done} / ${checks.length} · ${pct}%`;
+    }
+    function checkMust(){
+      checks.filter(c => c.dataset.level === 'must').forEach(c => { if (!c.checked) c.closest('.check-item').animate([{background:'#fff0c8'},{background:'transparent'}],{duration:900}); });
+      document.querySelector('#master').scrollIntoView({behavior:'smooth'});
+    }
+    function resetChecks(){
+      if (!confirm('确定清除本页全部勾选记录吗？')) return;
+      checks.forEach(c => c.checked = false);
+      persist();
+    }
+    const departure = new Date('2026-08-25T04:00:00+08:00');
+    const days = Math.max(0, Math.ceil((departure - Date.now()) / 86400000));
+    document.getElementById('countdown').textContent = days > 0 ? `${days} 天` : '今天出发';
+    updateProgress();
+  </script>
+
+
+</body></html>
