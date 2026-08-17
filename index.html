@@ -239,7 +239,7 @@
         <div class="countdown">
           <small>距离出发</small>
           <strong id="countdown">8 天</strong>
-          <div>8 月 25 日 04:00 浦东机场集合 · 07:20 起飞</div>
+          <div>8 月 25 日 06:15 浦东机场集合 · 09:35 起飞</div>
         </div>
         <div class="progress-card">
           <strong><span class="profile-name" id="activeProfileLabel">本机访客</span>的行前完成度</strong>
@@ -528,7 +528,7 @@
         <div class="day"><h3>8/21—8/22｜收款与设备通电</h3><p>暂按约 ¥1,000/人收酒店基础款；持卡人确认约 ¥20,000 可用额度和备用卡。相机、收音、读卡器和硬盘全部通电测试一次。</p></div>
         <div class="day"><h3>8/23—8/24｜48—72 小时复核</h3><p>复核所有航段、行李额、Sunbeam/Pacific Transport、文化村、接待单位、天气和海况；下载离线地图；打印邀请函、住宿与返程材料。</p></div>
         <div class="day"><h3>8/24 晚｜封箱</h3><p>称重；充电宝、药品、证件、相机电池和一套换洗衣物放随身包；液体单瓶不超过 100mL，统一装入 1L 可封口透明袋。</p></div>
-        <div class="day"><h3>8/25 04:00｜浦东机场</h3><p>证件组、行李组点名；保留每段登机牌和行李条；06:40 前全员到登机口。</p></div>
+        <div class="day"><h3>8/25 06:15｜浦东机场集合</h3><p>证件组、行李组点名；保留每段登机牌和行李条；08:55 前全员到登机口，09:35 起飞。</p></div>
       </div>
     </section>
 
@@ -721,7 +721,7 @@
       checks.forEach(c => c.checked = false);
       persist();
     }
-    const departure = new Date('2026-08-25T04:00:00+08:00');
+    const departure = new Date('2026-08-25T06:15:00+08:00');
     const days = Math.max(0, Math.ceil((departure - Date.now()) / 86400000));
     document.getElementById('countdown').textContent = days > 0 ? `${days} 天` : '今天出发';
     const entryVisualArticle = [...document.querySelectorAll('.visual-card')].find(card => card.querySelector('img')?.alt.includes('入境卡'))?.closest('article');
