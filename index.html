@@ -192,6 +192,28 @@
     .cash-location { padding:13px; border-radius:15px; background:rgba(255,255,255,.54); border:1px solid rgba(255,255,255,.52); }
     .cash-location strong { display:block; color:var(--sea); }
     .cash-location span { color:var(--muted); font-size:13px; }
+    .sleep-verdict { display:grid; grid-template-columns:118px 1fr; gap:18px; align-items:center; padding:20px; border-radius:22px; color:#fff; background:linear-gradient(125deg,rgba(7,48,57,.96),rgba(17,104,102,.86)); box-shadow:0 16px 36px rgba(3,31,38,.2); }
+    .sleep-verdict .zone-shift { display:grid; place-items:center; min-height:94px; padding:12px; border-radius:18px; color:#173f3d; background:#ffd27f; text-align:center; font:800 32px/1 Georgia,serif; }
+    .sleep-verdict .zone-shift small { display:block; margin-top:6px; font:800 11px/1.3 Georgia,serif; letter-spacing:.06em; }
+    .sleep-verdict h3 { margin:0 0 7px; font-size:23px; }
+    .sleep-verdict p { margin:0; color:rgba(255,255,255,.82); }
+    .sleep-plan { display:grid; gap:10px; }
+    .sleep-row { display:grid; grid-template-columns:106px minmax(0,1fr); gap:14px; align-items:start; padding:14px; border-radius:17px; background:rgba(255,255,255,.54); border:1px solid rgba(255,255,255,.52); }
+    .sleep-time { color:var(--coral); font:800 19px/1.25 Georgia,serif; }
+    .sleep-row strong { display:block; margin-bottom:3px; }
+    .sleep-row p { margin:0; color:var(--muted); font-size:14px; }
+    .dual-clock { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:12px 0; }
+    .clock-face { padding:15px; border-radius:17px; border:1px solid rgba(255,255,255,.55); background:rgba(255,255,255,.54); }
+    .clock-face small { display:block; color:var(--muted); font-weight:800; }
+    .clock-face strong { display:block; margin-top:5px; color:var(--sea); font:800 24px/1.1 Georgia,serif; }
+    .sleep-window { position:relative; overflow:hidden; padding:18px; border-radius:20px; color:#fff; background:linear-gradient(120deg,#092f3c,#174c55); }
+    .sleep-window::after { content:"☾"; position:absolute; right:18px; top:7px; color:rgba(255,210,127,.22); font:700 82px/1 Georgia,serif; }
+    .sleep-window strong { position:relative; z-index:1; display:block; color:#ffd27f; font:800 29px/1.1 Georgia,serif; }
+    .sleep-window p { position:relative; z-index:1; margin:8px 0 0; color:rgba(255,255,255,.78); }
+    .sleep-rules { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+    .sleep-rule { padding:14px; border-radius:16px; background:rgba(255,255,255,.53); border:1px solid rgba(255,255,255,.52); }
+    .sleep-rule strong { display:block; color:var(--sea); margin-bottom:4px; }
+    .sleep-rule p { margin:0; color:var(--muted); font-size:13px; }
     .reveal { opacity:0; transform:translate3d(0,28px,0); transition:opacity .72s ease,transform .72s cubic-bezier(.2,.8,.2,1); transition-delay:var(--reveal-delay,0ms); }
     .reveal.in-view { opacity:1; transform:none; }
     @keyframes heroRise { from { opacity:0; transform:translateY(26px); } to { opacity:1; transform:none; } }
@@ -214,6 +236,10 @@
       .hkg-verdict .amount { justify-self:start; }
       .flight-rail { grid-template-columns:1fr; }
       .flight-arrow { min-height:42px; }
+      .sleep-verdict { grid-template-columns:1fr; }
+      .sleep-verdict .zone-shift { justify-self:start; min-width:108px; }
+      .dual-clock, .sleep-rules { grid-template-columns:1fr; }
+      .sleep-row { grid-template-columns:88px minmax(0,1fr); }
       .guide-media { aspect-ratio:4/3; }
       .packing-index { top:54px; margin-inline:-4px; }
       .check-item { grid-template-columns:22px 1fr; }
@@ -284,7 +310,7 @@
   </header>
 
   <nav class="sticky-nav" aria-label="页面目录"><div class="wrap">
-    <a href="#first">先做四件事</a><a href="#hkg-refund">香港退税</a><a href="#xhs">旅行者经验</a><a href="#sim">实体卡</a><a href="#insurance">保险怎么买</a><a href="#payment">酒店付款</a><a href="#entry">入境</a><a href="#packing">详细物资</a><a href="#schedule">倒计时</a><a href="#safety">注意事项</a><a href="#master">总清单</a><a href="#sources">来源</a>
+    <a href="#first">先做四件事</a><a href="#hkg-refund">香港退税</a><a href="#xhs">旅行者经验</a><a href="#sim">实体卡</a><a href="#insurance">保险怎么买</a><a href="#payment">酒店付款</a><a href="#entry">入境</a><a href="#packing">详细物资</a><a href="#jetlag">倒时差</a><a href="#schedule">倒计时</a><a href="#safety">注意事项</a><a href="#master">总清单</a><a href="#sources">来源</a>
   </div></nav>
 
   <main class="wrap">
@@ -580,19 +606,41 @@
       </div>
     </section>
 
+    <section id="jetlag">
+      <div class="section-head"><div class="section-no">09</div><div><h2>倒时差：把长航段当成斐济的夜晚</h2><p>斐济比上海、香港快 4 小时，属于向东旅行。按 FJ392 16:15 从香港起飞、次日约 06:25 抵达楠迪设计；航班时刻如有调整，以登机牌为准。</p></div></div>
+      <div class="grid">
+        <article class="card full"><div class="sleep-verdict"><div class="zone-shift">+4h<small>斐济时间</small></div><div><h3>核心目标：机上睡 6 小时，抵达当天不补长觉</h3><p>出发前逐晚早睡，香港起飞后立刻按斐济时间生活。真正的主睡眠放在香港时间约 19:00—01:00，也就是斐济时间 23:00—05:00；落地后晒晨光并坚持到当地晚上再睡。</p></div></div></article>
+
+        <article class="card wide"><span class="tag">8/21—8/24</span><h3>出发前四晚怎么睡</h3><p class="note">下面按平时约 23:00—07:00 睡觉举例。若平时作息不同，保留“每天提前 30—60 分钟、总睡眠不少于 7 小时”的原则即可。</p><div class="sleep-plan"><div class="sleep-row"><div class="sleep-time">8/21<br>22:30</div><div><strong>比平时早 30 分钟上床</strong><p>06:30 起床；起床后尽快接触自然光，睡前 90 分钟把灯光调暗。</p></div></div><div class="sleep-row"><div class="sleep-time">8/22<br>22:00</div><div><strong>睡到 06:00</strong><p>下午 15:00 后不喝咖啡、浓茶或能量饮料；午睡控制在 20 分钟内。</p></div></div><div class="sleep-row"><div class="sleep-time">8/23<br>21:30</div><div><strong>睡到 05:30</strong><p>早晨晒光 30 分钟，晚上减少高亮屏幕；不要用熬夜“攒困意”。</p></div></div><div class="sleep-row"><div class="sleep-time">8/24<br>20:30</div><div><strong>按去机场路程倒推起床</strong><p>若需 04:00 起床，20:30 上床可留出约 7.5 小时；行李必须在睡前封好，避免临睡前继续收拾。</p></div></div></div></article>
+
+        <article class="card wide"><span class="tag orange">8/25 白天</span><h3>上海到香港：尽量保持清醒</h3><div class="dual-clock"><div class="clock-face"><small>上海 / 香港时间</small><strong>09:35 → 16:15</strong></div><div class="clock-face"><small>对应斐济时间</small><strong>13:35 → 20:15</strong></div></div><ul><li><strong>浦东—香港航段：</strong>尽量不睡；实在困可在 10:30 左右眯 20 分钟，设闹钟，最长不超过 30 分钟。</li><li><strong>最后一杯咖啡：</strong>建议不晚于上海/香港时间 10:30。中午以后摄入咖啡因，容易破坏后面的机上主睡眠。</li><li><strong>香港转机：</strong>保持走动和明亮环境，14:00 左右吃一顿正常但不过量的饭；不喝酒，不靠甜饮硬撑。</li><li><strong>16:15 登机后：</strong>把手机和手表切到斐济时间 20:15，之后所有吃饭、睡觉和闹钟都看斐济时间。</li></ul></article>
+
+        <article class="card full"><span class="tag gold">香港—楠迪主睡眠</span><h3>机上按这张表执行</h3><div class="sleep-plan"><div class="sleep-row"><div class="sleep-time">HKG<br>16:15</div><div><strong>起飞｜斐济 20:15</strong><p>起飞后喝水，第一餐少量进食；避免酒精、浓茶和咖啡。吃完尽快洗漱、上厕所。</p></div></div><div class="sleep-row"><div class="sleep-time">18:15<br>—19:00</div><div><strong>进入睡眠模式｜斐济 22:15—23:00</strong><p>戴眼罩、耳塞或降噪耳机，手机调暗并停止刷视频。系好安全带并放在毯子外面，减少被叫醒。</p></div></div><div class="sleep-row"><div class="sleep-time">19:00<br>—01:00</div><div><strong>主睡眠 6 小时｜斐济 23:00—05:00</strong><p>这是最值得保护的睡眠窗。能睡 5—6.5 小时都算成功；睡不着时闭眼休息，不反复看时间，也不要临时尝试陌生安眠药。</p></div></div><div class="sleep-row"><div class="sleep-time">01:00<br>HKG</div><div><strong>起床｜斐济 05:00</strong><p>打开阅读灯、喝水、活动脚踝和小腿，吃少量早餐。之后不要再睡到落地。</p></div></div><div class="sleep-row"><div class="sleep-time">06:25<br>NAN</div><div><strong>抵达楠迪</strong><p>已经进入斐济早晨。完成入境后尽量接触户外自然光，不戴深色墨镜一直躲光。</p></div></div></div></article>
+
+        <article class="card wide"><span class="tag">抵达当天</span><h3>把困意留到当地晚上</h3><div class="sleep-window"><strong>21:30—06:30</strong><p>抵达斐济第一晚的目标睡眠窗。白天越能保持清醒，晚上越容易一次睡稳。</p></div><div class="sleep-rules" style="margin-top:12px"><div class="sleep-rule"><strong>07:30—10:30 晨光</strong><p>户外走动 30—60 分钟；阴天的室外光也比室内强。</p></div><div class="sleep-rule"><strong>咖啡只放上午</strong><p>需要时在早餐后少量喝，最迟当地 13:00 停止。</p></div><div class="sleep-rule"><strong>午睡最多 20 分钟</strong><p>实在撑不住可在 13:00 前后短睡，14:00 后不再躺下。</p></div><div class="sleep-rule"><strong>晚上提前降光</strong><p>20:30 后调暗灯光，21:30—22:00 上床，不用酒精催眠。</p></div></div></article>
+
+        <article class="card wide"><span class="tag">第二天以后</span><h3>两晚基本能拉回节奏</h3><div class="sleep-plan"><div class="sleep-row"><div class="sleep-time">第 1 晚</div><div><strong>21:30—06:30</strong><p>即使凌晨醒来，也尽量保持低光、少看手机；早上按点起床。</p></div></div><div class="sleep-row"><div class="sleep-time">第 2 晚</div><div><strong>22:00—06:30</strong><p>白天正常活动并晒晨光，午后不补觉，逐步回到当地常规作息。</p></div></div><div class="sleep-row"><div class="sleep-time">第 3 天</div><div><strong>按行程需要固定起床</strong><p>每天起床时间尽量相差不超过 30 分钟，比强求“必须睡满”更利于稳定生物钟。</p></div></div></div><p class="note">抵达当天若困到反应变慢，不要自己开车，也不要单独下水；交给接送司机，并让同伴互相提醒。</p></article>
+
+        <article class="card wide"><span class="tag orange">药物边界</span><h3>褪黑素不是必带，也别在飞机上第一次试</h3><p>本次只跨 4 小时，多数人用睡眠、光照和短午睡就能调整。若成年人平时用过褪黑素且确实需要，可提前向医生或药师确认；CDC 指出较低剂量 0.5—1mg 往往已足以影响生物钟，并不建议使用超过 5mg 的高剂量。服用时机错误反而可能让节律更乱。</p><div class="warning"><strong>不要自行组合：</strong>褪黑素、处方安眠药、抗过敏药和酒精。未成年人、孕期或哺乳期、慢性病患者，以及正在服用其他药物者，先咨询专业人员；服后不驾车、不游泳、不单独行动。</div></article>
+        <article class="card wide"><span class="tag">随身舒适物</span><h3>帮助睡眠，但不升级为“必带”</h3><div class="decision-row"><span>眼罩、耳塞或降噪耳机</span><span class="answer">很建议</span></div><div class="decision-row"><span>U 型枕、薄外套、腰靠</span><span class="answer">按习惯</span></div><div class="decision-row"><span>充气脚垫</span><span class="answer">先看航司与邻座空间</span></div><div class="decision-row"><span>陌生安眠药、酒精助眠</span><span class="answer">不建议</span></div><p class="note">无论是否睡觉，每隔一段时间活动脚踝和小腿；醒着时适量饮水。压力袜仅对有相应风险或医生建议者优先，不作为全员必带。</p></article>
+
+        <article class="card full"><div class="check-group"><h3>倒时差检查</h3><div class="check-item"><input type="checkbox" id="sleep1" data-level="opt"><label for="sleep1">8/21 起每天把入睡和起床时间提前 30—60 分钟</label><span class="level opt">建议做</span></div><div class="check-item"><input type="checkbox" id="sleep2" data-level="must"><label for="sleep2">8/24 已按去机场路程倒推睡觉时间，保证至少约 7 小时睡眠</label><span class="level must">必做</span></div><div class="check-item"><input type="checkbox" id="sleep3" data-level="opt"><label for="sleep3">眼罩、耳塞/降噪耳机、U 型枕等已按个人习惯放入随身包</label><span class="level opt">建议带</span></div><div class="check-item"><input type="checkbox" id="sleep4" data-level="must"><label for="sleep4">香港起飞后把手机切到斐济时间，按当地时间吃饭和睡觉</label><span class="level must">必做</span></div><div class="check-item"><input type="checkbox" id="sleep5" data-level="opt"><label for="sleep5">8/25 最后一杯咖啡不晚于上海/香港时间 10:30</label><span class="level opt">建议做</span></div><div class="check-item"><input type="checkbox" id="sleep6" data-level="must"><label for="sleep6">机上主睡眠目标：香港时间约 19:00—01:00</label><span class="level must">重点</span></div><div class="check-item"><input type="checkbox" id="sleep7" data-level="must"><label for="sleep7">抵达当天晒晨光、午睡不超过 20 分钟、当地 21:30 左右上床</label><span class="level must">必做</span></div><div class="check-item"><input type="checkbox" id="sleep8" data-level="must"><label for="sleep8">不在飞机上首次尝试褪黑素或安眠药，不用酒精助眠</label><span class="level must">安全底线</span></div></div><div class="source-strip"><a href="https://www.cdc.gov/yellow-book/hcp/travel-air-sea/jet-lag-disorder.html">CDC Yellow Book：倒时差</a><a href="https://wwwnc.cdc.gov/travel/page/jet-lag">CDC Travelers' Health：旅行睡眠</a></div></article>
+      </div>
+    </section>
+
     <section id="schedule">
-      <div class="section-head"><div class="section-no">09</div><div><h2>最后四天到登机口</h2><p>按 8 月 21 日倒排，先补齐证件、票据和付款确认，不把关键事项拖到最后一晚。</p></div></div>
+      <div class="section-head"><div class="section-no">10</div><div><h2>最后四天到登机口</h2><p>按 8 月 21 日倒排，先补齐证件、票据和付款确认，不把关键事项拖到最后一晚。</p></div></div>
       <div class="timeline">
-        <div class="day"><h3>8/21｜证件、保险、酒店与香港税费</h3><p>收齐 10 人护照有效期；确定浮潜名单并完成保险；确认 5 间双人房的 Visa 垫付人、押金和刷卡费；逐人核对香港离境税明细，已收费者索取缴税证明。</p></div>
+        <div class="day"><h3>8/21｜证件、保险、酒店与香港税费</h3><p>收齐 10 人护照有效期；确定浮潜名单并完成保险；确认 5 间双人房的 Visa 垫付人、押金和刷卡费；逐人核对香港离境税明细。今晚起将睡眠提前约 30 分钟。</p></div>
         <div class="day"><h3>8/22｜物资、实体卡与设备通电</h3><p>确定 Vodafone/Digicel 双网负责人；需要换卡者准备换卡针和中国 SIM 收纳卡套；补齐防晒、驱蚊、转换插头和个人药；相机、收音、读卡器和硬盘全部通电测试。</p></div>
         <div class="day"><h3>8/23—8/24｜48—72 小时复核</h3><p>复核所有航段、行李额、Sunbeam/Pacific Transport、文化村、接待单位、天气和海况；下载离线地图；打印邀请函、住宿与返程材料。</p></div>
-        <div class="day"><h3>8/24 晚｜封箱</h3><p>称重；充电宝、药品、证件、相机电池和一套换洗衣物放随身包；液体单瓶不超过 100mL，统一装入 1L 可封口透明袋。</p></div>
+        <div class="day"><h3>8/24 晚｜封箱后早睡</h3><p>称重；充电宝、药品、证件、相机电池和一套换洗衣物放随身包；液体装入透明袋。20:00 前停止收拾，按机场路程倒推，目标 20:30 左右上床。</p></div>
         <div class="day"><h3>8/25｜06:15 浦东集合 · 09:35 起飞</h3><p>证件组、行李组点名；保留每段登机牌和行李条；08:55 前全员到登机口。12:30 抵港后先转机，14:45 停止退税操作，15:15 前到下一程登机口，16:15 飞往楠迪。</p></div>
       </div>
     </section>
 
     <section id="safety">
-      <div class="section-head"><div class="section-no">10</div><div><h2>到了以后最重要的注意事项</h2><p>这部分是“不要因为放松而忘掉”的底线。</p></div></div>
+      <div class="section-head"><div class="section-no">11</div><div><h2>到了以后最重要的注意事项</h2><p>这部分是“不要因为放松而忘掉”的底线。</p></div></div>
       <div class="grid">
         <article class="card"><h3>休闲浮潜底线</h3><ul><li>只参加正规经营者组织的活动，绝不独自浮潜，不越过浮标。</li><li>出发前问潮汐、暗流、风浪和取消标准；海况差就取消。</li><li>全程穿合身救生衣并和 buddy 互相确认；不会游泳、怕水、近视或服药要提前说明。</li><li>面镜进水、呼吸急促、抽筋或恐慌时立即举手求助并离水。</li><li>不摸、不站珊瑚，不追逐海龟、鲨鱼或其他海洋生物。</li></ul></article>
         <article class="card"><h3>蚊媒与发热</h3><ul><li>驱蚊每日补涂，林地和晨昏穿长袖长裤。</li><li>避免洪水、泥地、河水；有伤口更不要下水。</li><li>出现高热、眼后痛、皮疹、出血点，尽快就医。</li><li>怀疑登革热时，不自行服用阿司匹林或布洛芬；先咨询医生。</li></ul></article>
@@ -604,7 +652,7 @@
     </section>
 
     <section id="master">
-      <div class="section-head"><div class="section-no">11</div><div><h2>最终总清单</h2><p>勾选会自动保存在当前浏览器，下次打开仍在；原有勾选项 ID 已保留，避免已有进度错位。</p></div></div>
+      <div class="section-head"><div class="section-no">12</div><div><h2>最终总清单</h2><p>勾选会自动保存在当前浏览器，下次打开仍在；原有勾选项 ID 已保留，避免已有进度错位。</p></div></div>
       <div class="grid">
         <div class="check-group card wide"><h3>证件与预订</h3>
           <div class="check-item"><input type="checkbox" id="c1" data-level="must"><label for="c1">护照有效期、机票姓名、航段全部核对</label><span class="level must">必做</span></div>
@@ -665,11 +713,16 @@
           <div class="check-item"><input type="checkbox" id="c39" data-level="must"><label for="c39">设备负责人确认电脑/平板、读卡器和移动硬盘能互相识别，备份试跑成功</label><span class="level must">设备组必做</span></div>
           <div class="check-item"><input type="checkbox" id="c40" data-level="must"><label for="c40">设备负责人把相机、硬盘和备用锂电池放入随身包，电池电极已保护</label><span class="level must">设备组必做</span></div>
         </div>
+        <div class="check-group card wide"><h3>睡眠与倒时差</h3>
+          <div class="check-item"><input type="checkbox" id="c44" data-level="must"><label for="c44">8/24 已按机场路程倒推入睡时间，出发前一晚至少睡约 7 小时</label><span class="level must">必做</span></div>
+          <div class="check-item"><input type="checkbox" id="c45" data-level="must"><label for="c45">机上主睡眠安排为香港时间约 19:00—01:00，眼罩与耳塞在随身包</label><span class="level must">重点</span></div>
+          <div class="check-item"><input type="checkbox" id="c46" data-level="must"><label for="c46">抵达当天不补长觉：晒晨光、午睡不超过 20 分钟、当地 21:30 左右睡</label><span class="level must">必做</span></div>
+        </div>
       </div>
     </section>
 
     <section id="sources">
-      <div class="section-head"><div class="section-no">12</div><div><h2>核验来源</h2><p>规则和价格会变；出发前 48—72 小时再打开官方页确认。第 02 节另核对 4 篇香港转机退税笔记，第 03 节列有 29 篇斐济旅行者笔记，方便回看原文。</p></div></div>
+      <div class="section-head"><div class="section-no">13</div><div><h2>核验来源</h2><p>规则和价格会变；出发前 48—72 小时再打开官方页确认。第 02 节另核对 4 篇香港转机退税笔记，第 03 节列有 29 篇斐济旅行者笔记，方便回看原文。</p></div></div>
       <ol class="sources">
         <li><a href="https://www.cad.gov.hk/sc/departure_tax.html">香港民航处：飞机乘客离境税、空到空转机豁免及 28 日申请期限</a></li>
         <li><a href="https://www.apdtrefund.hk/sc/">香港机场管理局：网上退款材料、退款方式与现金二维码规则</a>；<a href="https://app.apdtrefund.hk/?lang=sc">官方申请入口</a></li>
@@ -684,6 +737,7 @@
         <li><a href="https://www.fijiairways.com/media/246988/fiji-airways-terms-and-conditions-of-carriage.pdf">Fiji Airways：手提行李 7kg、55×40×20cm、液体 100mL 与贵重电子设备随身</a></li>
         <li><a href="https://www.caac.gov.cn/INDEX/HLFW/HKLXCS/202303/t20230316_217597.html">中国民航局：液体、锂电池与充电宝规定</a>；<a href="https://www.caac.gov.cn/XWZX/MHYW/202506/t20250626_227805.html">充电宝 3C 标识与召回型号提醒</a></li>
         <li><a href="https://www.cdc.gov/blood-clots/risk-factors/travel.html">CDC：长途旅行血栓风险、活动小腿与压力袜</a></li>
+        <li><a href="https://www.cdc.gov/yellow-book/hcp/travel-air-sea/jet-lag-disorder.html">CDC Yellow Book 2026：倒时差的睡眠调整、光照、短午睡、咖啡因与褪黑素边界</a>；<a href="https://wwwnc.cdc.gov/travel/page/jet-lag">CDC Travelers' Health：抵达后的作息与补水建议</a></li>
         <li><a href="https://www.fiji.travel/things-to-do/family-friendly-tips/top-tips-for-visiting-fiji-with-kids">Tourism Fiji：240V/50Hz、Type I 插座与官方打包建议</a></li>
         <li><a href="https://www.met.gov.fj/climate-services/climate-outlooks/">Fiji Meteorological Service：气候展望</a></li>
         <li><a href="https://www.fiji.travel/things-to-know/healthy-and-safety/healthy-and-hospitals">Tourism Fiji：健康、防晒、登革热</a>；<a href="https://www.fiji.travel/things-to-know/healthy-and-safety/water-safety">涉水安全</a></li>
